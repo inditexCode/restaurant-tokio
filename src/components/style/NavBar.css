@@ -1,0 +1,27 @@
+/* Asegúrate de que este archivo CSS esté vinculado en tu archivo principal */
+.navbar {
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .navbar-brand {
+    margin-left: 10px; /* Espacio opcional a la izquierda del logo */
+  }
+  
+  .navbar-nav {
+    display: flex;
+    gap: 15px; /* Espacio entre los elementos de la navegación */
+  }
+  
+  .nav-link {
+    padding: 10px 15px;
+    color: #000; /* Color de los enlaces de navegación */
+    text-decoration: none; /* Quitar el subrayado */
+  }
+  
+  .nav-link:hover {
+    color: #007bff; /* Color de los enlaces al pasar el mouse */
+  }
+  
