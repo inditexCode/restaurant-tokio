@@ -9,6 +9,7 @@ import IconFood from '@mui/icons-material/Dining';
 
 
 const Novedades = () => {
+
   return (
     <>
       <div className="container">
@@ -33,7 +34,7 @@ const Novedades = () => {
             <img src={ huerta } className="card-img-top" alt="imagen-huerta" />
             <div className="card-body">
               <h5 className="card-title"><GrassIcon sx={{ fontSize: 36 }} className='icon-grass'/> ¡ SOMOS VERDE !</h5>
-              <span><p className='frase'>¡ ESTA EN NUESTRAS MANOS HACER UN MUNDO MEJOR !</p></span>
+              <span><p className='frase'>¡ ESTÁ EN NUESTRAS MANOS HACER UN MUNDO MEJOR !</p></span>
                            <p className="card-text">
                            En nuestro restaurante, creemos en la importancia de ofrecer alimentos frescos, saludables y sostenibles.
                             Por eso, todos nuestros productos provienen de nuestra propia huerta orgánica, cultivada con amor y respeto por la naturaleza.
