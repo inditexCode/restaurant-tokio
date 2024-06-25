@@ -2,12 +2,13 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import NavBar from './components/NavBar'
-import Inicio from './components/pages/Inicio'
-import Especialidades from './components/pages/Especialidades'
-import Menu from './components/pages/Menu'
-import Carta from './components/pages/Carta'
-import Reserva from './components/pages/Reserva'
-import Logo from './components/pages/Logo'
+import Logo from './components/pages/Logo';
+import Inicio from './components/pages/inicio/Inicio';
+import Especialidades from './components/pages/especialidades/Especialidades';
+import Menu from './components/pages/menu/Menu';
+import Carta from './components/pages/carta/Carta';
+import Reserva from './components/pages/reserva/Reserva';
+
 
 const Apps = () => {
   return (

@@ -1,6 +1,5 @@
 import React from 'react'
-import Inicio from './Inicio'
-
+import Inicio from './inicio/Inicio'
 const Logo = () => {
   return (
     <>

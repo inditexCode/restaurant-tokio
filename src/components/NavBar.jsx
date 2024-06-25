@@ -6,6 +6,7 @@ import './style/NavBar.css'; // Esta es la ruta correcta para importar el CSS
 const NavBar = () => {
   return (
 <>
+<div className="contenedor">
 <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
     <Link  to='/' className="navbar-brand" href="#">Logo</Link>
@@ -15,24 +16,25 @@ const NavBar = () => {
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <NavLink to='/' className="nav-link" >Inicio</NavLink>
+          <NavLink to='/' className="nav-link" >INICIO</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to='/carta' className="nav-link" >Carta</NavLink>
+          <NavLink to='/carta' className="nav-link" >CARTA</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to='/especialidades' className="nav-link" >Especialidades</NavLink>
+          <NavLink to='/especialidades' className="nav-link" >ESPECIALIDADES</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to='/menu' className="nav-link">Menú grupal</NavLink>
+          <NavLink to='/menu' className="nav-link">MENÚ</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to='/reserva' className="nav-link">Reserva</NavLink>
+          <NavLink to='/reserva' className="nav-link">RESERVA</NavLink>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+</div>
 </>
 )}
 
