@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import './Header.css'; 
-import bgVideo from './video/bg_video.mp4';  
+import bgVideo from './video-img/bg_video.mp4';  
 
 const Header = () => {
   const videoRef = useRef(null);
