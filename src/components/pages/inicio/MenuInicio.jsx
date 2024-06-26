@@ -7,7 +7,7 @@ import postres from './video-img/postres.jpg';
 import drinks from './video-img/drinks.jpg';  
 
 const menuItems = [
-  { title: 'pizza', imagen: pizza, link: '' },
+  { title: 'pizzas', imagen: pizza, link: '' },
   { title: 'pastas', imagen: pastas, link: '' },
   { title: 'ensaladas', imagen: ensaladas, link: '' },
   { title: 'postres', imagen: postres, link: '' },

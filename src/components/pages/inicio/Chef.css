@@ -1,0 +1,79 @@
+
+.conteiner{
+    margin-top: 50px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.conteiner_tex{
+    display: block;
+    padding: 10px 20px;
+    flex: 1 1 300px;
+    max-width: 600px;
+}
+.conteiner_tex h3{
+    background: linear-gradient(180deg, #000000, #333333); /* Fondo negro degradado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px 0;
+}
+.conteiner_tex h6{
+    color: rgba(210, 50, 10, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    word-spacing: 2px;
+   line-height: 1.5;
+}
+.conteiner_tex p{
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    word-spacing: 2px;
+   line-height: 1.5;
+}
+
+.img_luigi{
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: cover;
+    flex: 1 1 300px;
+}
+.icono {
+    width: 50px; /* Ajusta el tamaño del ícono según sea necesario */
+    height: 50px; /* Ajusta el tamaño del ícono según sea necesario */
+    margin-right: 10px; /* Espacio entre el ícono y el texto */
+    margin-left: 20px;
+    vertical-align: middle; /* Alinea verticalmente con el texto */
+}
+@media (max-width: 992px) {
+    .conteiner {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img_luigi, .conteiner_tex {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .conteiner {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img_luigi, .conteiner_tex {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+}

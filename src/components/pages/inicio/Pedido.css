@@ -1,0 +1,116 @@
+.contenedor{
+    margin-top: 50px;
+     padding: 10px 20px;
+}
+.contenedor_hijo{
+    display: flex;
+    justify-content: space-around;
+}
+.contenedor_texto{
+    display: block;
+    padding: 10px 20px;
+}
+.contenedor_texto h4{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: rgba(210, 50, 10, 1);
+}
+.contenedor_texto h6{
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+.contenedor_texto h2{
+    padding: 10px 0;
+}
+.contenedor_texto .listas li{
+    font-size: 1.3rem;
+    padding: 10px 0;
+}
+.contenedor_texto .listas li span{
+    color: rgba(210, 50, 10, 1);
+    font-weight: bold;
+}
+.img_card{
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+}
+.contenedor_texto .boton{
+    background-color: rgba(210, 50, 10, 1);
+    color: white;
+    border: 1px solid rgba(210, 50, 10, 1); /* Puedes ajustar el borde según sea necesario */
+    padding: 10px 20px; /* Ajusta el padding según sea necesario */
+    font-size: 16px; /* Ajusta el tamaño de fuente según sea necesario */
+    cursor: pointer;
+  }
+  .contenedor_texto .boton:hover{
+    background-color:white ;
+    color: rgba(210, 50, 10, 1);
+
+  }
+
+  /* Media Queries */
+@media (max-width: 992px) {
+    .contenedor_hijo {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .img_card {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contenedor_hijo {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .img_card {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .contenedor_hijo {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .img_card {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .contenedor_texto {
+      padding: 10px;
+    }
+  
+    .contenedor_texto h4 {
+      font-size: 1.5rem;
+    }
+  
+    .contenedor_texto h6 {
+      font-size: 1.2rem;
+    }
+  
+    .contenedor_texto h2 {
+      font-size: 1.8rem;
+    }
+  
+    .contenedor_texto .listas li {
+      font-size: 1.1rem;
+    }
+  
+    .contenedor_texto .boton {
+      width: 100%;
+      font-size: 14px;
+    }
+  }

@@ -7,6 +7,8 @@
   }
   .menu-container h5{
     padding: 15px;
+    color: rgba(210, 50, 10, 1);
+
   }
   .menu-list {
     list-style: none;
