@@ -9,7 +9,7 @@
  const face = 'https://es-es.facebook.com/'
  const insta = 'https://www.instagram.com/'
  const twt = 'https://x.com/'
- const li = 'https://www.linkedin.com/'
+ const li = 'https://www.linkedin.com/home'
  const Redes = () => {
   return (
     <div className='container_redes'>

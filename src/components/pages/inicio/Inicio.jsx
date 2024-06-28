@@ -7,6 +7,8 @@ import Pedido from './Pedido';
 import Comentarios from './hook/Comentarios';
 import Chef from './Chef';
 import Redes from './Redes';
+import Mapa from './mapa/Mapa';
+import Footer from './Footer';
 
 
 const Inicio = () => {
@@ -16,9 +18,11 @@ const Inicio = () => {
        <Novedades></Novedades>
        <MenuInicio></MenuInicio>
        <Pedido></Pedido>
+       <Mapa></Mapa>
        <Comentarios></Comentarios>
        <Chef></Chef>
        <Redes></Redes>
+       <Footer></Footer>
        </>
   );
 };
