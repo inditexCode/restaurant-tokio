@@ -1,0 +1,25 @@
+.container-especialidades h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    font-family: monospace;
+    background-color: rgb(225, 223, 223);
+  }
+  
+  /* Media Queries para pantallas medianas */
+  @media (max-width: 768px) {
+    .container-especialidades h3 {
+        padding-left: 10px;
+      font-size: 1.5em;
+    }
+  }
+  
+  /* Media Queries para pantallas pequeñas */
+  @media (max-width: 480px) {
+    .container-especialidades h3 {
+        padding-left: 10px;
+      font-size: 1.2em;
+    }
+  }
+  

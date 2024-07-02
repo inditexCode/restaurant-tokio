@@ -8,6 +8,7 @@ import Especialidades from './components/pages/especialidades/Especialidades';
 import Menu from './components/pages/menu/Menu';
 import Carta from './components/pages/carta/Carta';
 import Reserva from './components/pages/reserva/Reserva';
+import Contactos from './components/pages/inicio/contacto/Contactos';
 
 
 const Apps = () => {
@@ -22,6 +23,8 @@ const Apps = () => {
       <Route path='/carta' element={ <Carta/> }></Route>
       <Route path='/reserva' element={ <Reserva/> }></Route>
       <Route path='/*' element={ <Navigate to='/' /> } ></Route>
+      <Route path='/contacto' element={ <Contactos/> }></Route>
+
     </Routes>
    </>
   )

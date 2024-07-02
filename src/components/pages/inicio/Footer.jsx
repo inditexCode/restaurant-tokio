@@ -8,10 +8,11 @@ const Footer = () => {
     <div className="container-footer">
     <footer className="footer">
     <nav className='navegacion-footer'>
-        <div className='link-footer'><Link to="/especialidades">Especialidades</Link></div>
-        <div className='link-footer'><Link to="/menu">Menu</Link></div>
-        <div className='link-footer'><Link to="/carta">Carta</Link></div>
-        <div className='link-footer'><Link to="/reserva">Reserva</Link></div> 
+        <div className='link-footer'><Link to="/especialidades">ESPECIALIDADES</Link></div>
+        <div className='link-footer'><Link to="/menu">MENU</Link></div>
+        <div className='link-footer'><Link to="/carta">CARTA</Link></div>
+        <div className='link-footer'><Link to="/reserva">RESERVA</Link></div> 
+        <div className='link-footer'><Link to="/contacto">CONTACTO</Link></div> 
     </nav>
     <div className="derechos-reservados">
           &copy; 2024 Derechos Reservados

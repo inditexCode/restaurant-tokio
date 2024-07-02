@@ -1,0 +1,95 @@
+.container-texto h3 {
+    background-color: rgba(140, 23, 19, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    font-family: monospace;
+    color: white;
+  }
+  
+  .item-salsa li {
+    list-style-type: none; /* Quita los puntos de la lista */
+    padding: 0; /* Quita el padding por defecto del ul */
+  }
+  
+  .item-salsa {
+    margin-bottom: 15px; /* Espacio entre cada ítem */
+  }
+  
+  .item-salsa li {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .item-salsa h6 {
+    margin: 0; /* Quita el margen por defecto del h6 */
+    padding-bottom: 3px; /* Separación de 3px desde el título */
+    border-bottom: 1px solid #d3d3d3; /* Subrayado con una línea de color gris suave */
+  }
+  
+  .item-salsa p {
+    margin: 0; /* Quita el margen por defecto del p */
+    margin-top: 5px; /* Añade un poco de margen superior para separar el texto del título */
+    margin-bottom: 10px;
+  }
+  
+  .container-texto .button {
+    background-color: transparent;
+    color: rgba(210, 50, 10, 1);
+    border: 1px solid rgba(210, 50, 10, 1); /* Puedes ajustar el borde según sea necesario */
+    padding: 10px 20px; /* Ajusta el padding según sea necesario */
+    font-size: 16px; /* Ajusta el tamaño de fuente según sea necesario */
+    cursor: pointer;
+   
+  }
+  
+  .container-texto .button:hover {
+    background-color: rgba(210, 50, 10, 1);
+    color: white;
+  }
+  
+  /* Media Queries para pantallas medianas */
+  @media (max-width: 768px) {
+    .container-texto h3 {
+      padding: 15px 0;
+      font-size: 1.2em;
+    }
+    .item-salsa {
+      margin-bottom: 10px;
+    }
+    .item-salsa h6 {
+      font-size: 1em;
+    }
+    .item-salsa p {
+      font-size: 0.9em;
+    }
+    .container-texto .button {
+      padding: 8px 16px; /* Ajusta el padding para pantallas medianas */
+      font-size: 14px; /* Reduce el tamaño de fuente para pantallas medianas */
+    }
+  }
+  
+  /* Media Queries para pantallas pequeñas */
+  @media (max-width: 480px) {
+    .container-texto h3 {
+      padding: 10px 0;
+      font-size: 1em;
+    }
+    .item-salsa {
+      margin-bottom: 8px;
+    }
+    .item-salsa h6 {
+      font-size: 0.9em;
+    }
+    .item-salsa p {
+      font-size: 0.8em;
+    }
+    .container-texto .button {
+      padding: 6px 12px; /* Ajusta el padding para pantallas pequeñas */
+      font-size: 12px; /* Reduce el tamaño de fuente para pantallas pequeñas */
+    }
+  }
+  
+  
+  

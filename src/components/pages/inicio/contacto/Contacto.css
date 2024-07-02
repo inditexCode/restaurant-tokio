@@ -1,0 +1,52 @@
+/* Estilos para el contenedor principal */
+.contactos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos para la imagen de fondo */
+.imagen-contacto {
+  width: 100%;
+  height: auto;
+  max-height: 50vh; /* Máximo 30% de la altura de la ventana */
+  object-fit: cover; /* Ajustar la imagen sin distorsionarla */
+  margin-bottom: 50px; /* Espacio de 50px desde la imagen hasta el formulario */
+}
+.conteiner-contacto p{
+display: flex;
+align-items: center;
+justify-content: center;
+color: brown;
+}
+.conteiner-contacto h4{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  }
+
+/* Estilos para el contenedor del formulario */
+.formulario {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .imagen-contacto {
+    width: 100%; /* Ajuste para pantallas pequeñas */
+  }
+
+  .formulario {
+    width: 100%; /* Ajuste para pantallas pequeñas */
+    padding: 10px; /* Espaciado menor en pantallas pequeñas */
+  }
+}
+
+
+
