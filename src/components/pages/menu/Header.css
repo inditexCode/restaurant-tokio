@@ -1,0 +1,86 @@
+.header-container {
+    width: 100%;
+    padding: 20px ;
+}
+
+.item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-left: 20px; 
+    width: 80%;
+    margin-left:40px ;
+}
+
+.item-image {
+    width: 15%;
+    height: 5%;
+    object-fit: cover; /* Ensure the image is cropped to fit the square dimensions */
+    margin-right: 20px; /* Margin between image and text */
+}
+
+.item-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-title {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.item-description {
+    margin: 0;
+    font-size: 1em;
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+    .item {
+      width: 90%;
+      margin-left: 20px;
+      padding-left: 10px;
+    }
+  
+    .item-image {
+      width: 20%;
+      height: auto;
+    }
+  
+    .item-title {
+      font-size: 1.1em;
+    }
+  
+    .item-description {
+      font-size: 0.9em;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .item {
+      display: block;
+      width: 100%;
+      margin-left: 0;
+      padding-left: 0;
+      text-align: center; /* Center align text for better readability on small screens */
+    }
+  
+    .item-image {
+      width: 100%;
+      height: auto;
+      margin: 0 auto 10px; /* Center the image and add margin below it */
+    }
+  
+    .item-text {
+      display: block;
+      text-align: center; /* Center align text for better readability on small screens */
+    }
+  
+    .item-title {
+      font-size: 1.2em;
+    }
+  
+    .item-description {
+      font-size: 1em;
+    }
+  }
+  

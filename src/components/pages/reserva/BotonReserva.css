@@ -1,0 +1,14 @@
+.container-button .button {
+    background-color: transparent;
+    color: rgba(210, 50, 10, 1);
+    border: 1px solid rgba(210, 50, 10, 1); /* Puedes ajustar el borde según sea necesario */
+    padding: 10px 20px; /* Ajusta el padding según sea necesario */
+    font-size: 16px; /* Ajusta el tamaño de fuente según sea necesario */
+    cursor: pointer;
+   
+  }
+  
+  .container-button .button:hover {
+    background-color: rgba(210, 50, 10, 1);
+    color: white;
+  }

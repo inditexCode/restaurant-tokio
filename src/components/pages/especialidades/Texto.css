@@ -34,20 +34,7 @@
     margin-bottom: 10px;
   }
   
-  .container-texto .button {
-    background-color: transparent;
-    color: rgba(210, 50, 10, 1);
-    border: 1px solid rgba(210, 50, 10, 1); /* Puedes ajustar el borde según sea necesario */
-    padding: 10px 20px; /* Ajusta el padding según sea necesario */
-    font-size: 16px; /* Ajusta el tamaño de fuente según sea necesario */
-    cursor: pointer;
-   
-  }
-  
-  .container-texto .button:hover {
-    background-color: rgba(210, 50, 10, 1);
-    color: white;
-  }
+
   
   /* Media Queries para pantallas medianas */
   @media (max-width: 768px) {
@@ -85,10 +72,7 @@
     .item-salsa p {
       font-size: 0.8em;
     }
-    .container-texto .button {
-      padding: 6px 12px; /* Ajusta el padding para pantallas pequeñas */
-      font-size: 12px; /* Reduce el tamaño de fuente para pantallas pequeñas */
-    }
+   
   }
   
   

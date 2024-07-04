@@ -4,17 +4,15 @@ import imgpizzaLibre from './video-img/pizza-horno.jpg';
 import huerta from './video-img/huertas.jpg';  
 import GrassIcon from '@mui/icons-material/Grass';
 import IconFood from '@mui/icons-material/Dining';
-import { useNavigate } from 'react-router-dom';
+import BotonReserva from '../reserva/BotonReserva';
 
 
 
 
 
 const Novedades = () => {
-  const navigate = useNavigate();
-  const reservaClick = () => {
-      navigate('/reserva')
-  }
+
+  
 
   return (
     <>
@@ -33,7 +31,7 @@ const Novedades = () => {
                 Descubre una experiencia única cada miércoles en Tagliatella: ¡Día de Pizzas Libres! Sumérgete en un festín de sabores con nuestra selección exclusiva de pizzas artesanales, donde cada bocado es una obra maestra de la cocina italiana. Desde clásicas margaritas hasta extravagantes combinaciones gourmet, cada pizza está preparada con ingredientes frescos y auténticos. Únete a nosotros y disfruta de una velada inolvidable de camaradería y sabor.
                  ¡Reserva tu mesa ahora y déjate cautivar por el encanto de nuestras pizzas libres!
                  </p>
-              <button type="button" className='button' onClick={ reservaClick }>RESERVAR</button>
+                 <BotonReserva></BotonReserva>
             </div>
           </div>
           <div className="card">

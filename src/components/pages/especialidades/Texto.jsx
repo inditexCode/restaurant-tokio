@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
 import './Texto.css'
 
 const items = [
@@ -18,10 +17,7 @@ const items = [
 ]
 
 const Texto = () => {
-    const navigate = useNavigate();
-    const reservaClick = () => {
-        navigate('/reserva')
-    }
+  
     const renderItem = () =>{
         return items.map((item, index) => (
         <div className='item-salsa' key={index}>
@@ -40,10 +36,6 @@ const Texto = () => {
          { renderItem() }
         </div>
       </ul>
-      <button type="button"
-       className='button'
-       onClick={ reservaClick }
-       >RESERVAR</button>
 
     </div>
 

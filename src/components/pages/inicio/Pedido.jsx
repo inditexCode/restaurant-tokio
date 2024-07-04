@@ -1,7 +1,9 @@
 import takeAway from './video-img/take-away.jpg';
 import './Pedido.css'; 
+import BotonPedido from './BotonPedido';
 
 const CardContent = ({ subtitle, title, mainTitle, description, items, buttonText, imageSrc }) => {
+  
 
   return (
     <div className="contenedor">
@@ -18,7 +20,7 @@ const CardContent = ({ subtitle, title, mainTitle, description, items, buttonTex
               </li>
             ))}
           </ul>
-          <button type='button' className='boton'>{ buttonText }</button>
+          <BotonPedido/>
         </div>
         <img className='img_card' src={ imageSrc } alt="recoger" />
       </div>
@@ -37,7 +39,6 @@ const Pedido = () => {
       { boldText: "HACÉ TU PEDIDO", text: "añade todos los platos favoritos y estarán listos en pocos minutos" },
       { boldText: "DISFRÚTALO", text: "compártelo dónde y con quien quieras" }
     ],
-    buttonText: "RECOGER",
     imageSrc: takeAway
   };
 

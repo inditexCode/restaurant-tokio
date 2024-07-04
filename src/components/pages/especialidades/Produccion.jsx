@@ -40,9 +40,6 @@ const Produccion = () => {
         <Texto></Texto>
 
       </div>
-
-      <div className="container-texto">
-      </div>
     </div>
   )
 }
