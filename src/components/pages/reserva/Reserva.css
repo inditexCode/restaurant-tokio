@@ -1,0 +1,59 @@
+/* Asegúrate de que el contenedor ocupe el 100% de la pantalla */
+.reserva-container {
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se alineen verticalmente */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa el 100% del alto de la ventana */
+    width: 100vw;  /* Ocupa el 100% del ancho de la ventana */
+    background-color: #f8f9fa; /* Color de fondo, ajusta según sea necesario */
+    padding: 1rem; /* Espaciado para que no quede pegado a los bordes */
+    box-sizing: border-box;
+  }
+  
+  .texto {
+    text-align: center; /* Alinea el texto al centro */
+    margin-bottom: 2rem; /* Espaciado entre el texto y el formulario */
+  }
+  
+
+  
+  .texto p {
+    font-family: monospace;
+    margin-bottom: 1rem; /* Espaciado debajo del párrafo */
+    font-size: 1.2rem; /* Ajusta el tamaño de la fuente según el diseño */
+  }
+  
+
+  
+  .reserva-content {
+    max-width: 600px; /* Limita el ancho máximo para pantallas grandes */
+    width: 100%; /* Ocupa el 100% del ancho del contenedor padre */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    background: white; /* Fondo blanco para el formulario */
+    padding: 2rem; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .reserva-content {
+      padding: 1rem; /* Menos espaciado en pantallas medianas */
+    }
+  
+    .texto p {
+      font-size: 0.875rem; /* Ajusta el tamaño del texto para pantallas medianas */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .reserva-content {
+      padding: 0.5rem; /* Menos espaciado en pantallas pequeñas */
+      font-size: 0.875rem; /* Tamaño de fuente más pequeño para pantallas pequeñas */
+    }
+  
+    .texto p {
+      font-size: 0.75rem; /* Ajusta el tamaño del texto para pantallas pequeñas */
+    }
+  }
+  

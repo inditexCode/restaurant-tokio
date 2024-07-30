@@ -2,6 +2,7 @@ import React from 'react'
 import './Contacto.css'
 import FormContacto from './FormContacto'
 import imagen from './img/fondo-images.jpg'
+import Redes from '../Redes'
 const Contactos = () => {
   return (
     <>
@@ -13,6 +14,8 @@ const Contactos = () => {
     <FormContacto/>
     </div>
      </div>
+     <Redes></Redes>
+
     </>
     
   )
