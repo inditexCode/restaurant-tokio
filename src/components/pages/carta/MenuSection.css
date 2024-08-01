@@ -1,0 +1,83 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20vh;
+  position: relative;
+}
+
+.separador {
+  width: 100%;
+  height: 25px; /* Ajusta la altura de la línea */
+  background-color: rgb(208, 205, 205); /* Color gris claro */
+  position: absolute;
+  bottom: 0; /* Para que esté al final del contenedor */
+  padding: 5vh 0;
+  margin-top: 10vh 0;
+  margin-bottom: 5vh;
+}
+
+.contenedor_cabecera {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.cabecera-imagen {
+  width: 100%;
+  height: auto;
+  max-height: 400px; /* Ajusta la altura máxima de la imagen aquí */
+  object-fit: cover;
+}
+
+.titulo_cabecera {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.7); /* Fondo semitransparente para mejor visibilidad */
+  padding: 20px;
+  margin: 0;
+  font-size: 1.5em;
+  width: calc(100% - 40px); /* Ajusta el ancho para mantener el padding */
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.columna {
+  flex: 1 0 30%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+/* Estilos para pantallas medianas (tabletas, pantallas intermedias) */
+@media (max-width: 992px) {
+  .columna {
+    flex: 1 0 45%; /* Dos columnas por fila */
+  }
+}
+
+/* Estilos para pantallas pequeñas (móviles, pantallas pequeñas) */
+@media (max-width: 576px) {
+  .columna {
+    flex: 1 0 100%; /* Una columna por fila */
+  }
+}
+
+
+
+  

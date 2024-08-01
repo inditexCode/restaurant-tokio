@@ -6,7 +6,12 @@
     font-family: monospace;
     background-color: rgb(225, 223, 223);
   }
-  
+  .container_botones{
+    padding: 20px ;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+  }
   /* Media Queries para pantallas medianas */
   @media (max-width: 768px) {
     .container-especialidades h3 {

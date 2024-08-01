@@ -1,0 +1,83 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+ 
+  .contenedor_cabecera {
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  
+  .cabecera-imagen {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Ajusta la altura máxima de la imagen aquí */
+    object-fit: cover;
+  }
+  
+  .titulo_cabecera {
+    font-family:monospace;
+    font-weight: bold;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.7); /* Fondo semitransparente para mejor visibilidad */
+    padding: 20px;
+    margin: 0;
+    width: calc(100% - 40px); /* Ajusta el ancho para mantener el padding */
+  }
+ 
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .columna {
+    flex: 1 0 30%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  
+  .card {
+    width: 100%;
+    height: 100%;
+  }
+  
+ 
+  
+  /* Ajustes para dispositivos móviles */
+  @media (max-width: 768px) {
+    .columna {
+      flex: 1 0 50%;
+    }
+  
+    .titulo_cabecera {
+      font-size: 1.2em;
+      padding: 15px;
+    }
+  
+    .cabecera-imagen {
+      max-height: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+
+  
+    .titulo_cabecera {
+      font-size: 1em;
+      padding: 10px;
+    }
+  
+    .cabecera-imagen {
+      max-height: 200px;
+    }
+  }
+  
+  

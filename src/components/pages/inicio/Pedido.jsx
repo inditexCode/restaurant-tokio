@@ -1,6 +1,5 @@
 import takeAway from './video-img/take-away.jpg';
 import './Pedido.css'; 
-import BotonPedido from './BotonPedido';
 
 const CardContent = ({ subtitle, title, mainTitle, description, items, buttonText, imageSrc }) => {
   
@@ -20,7 +19,6 @@ const CardContent = ({ subtitle, title, mainTitle, description, items, buttonTex
               </li>
             ))}
           </ul>
-          <BotonPedido/>
         </div>
         <img className='img_card' src={ imageSrc } alt="recoger" />
       </div>
