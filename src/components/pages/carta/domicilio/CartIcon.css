@@ -1,0 +1,83 @@
+/* Estilos del modal */
+.modal-carrito {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-carrito {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 80%;
+}
+
+.close-carrito {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Otros estilos del carrito */
+.cart-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  background: linear-gradient(to bottom, rgb(236, 85, 47) 0%, rgb(210, 50, 10) 100%);
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+.cart-icon-container .MuiSvgIcon-root {
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.cart-counter {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .cart-icon-container {
+    padding: 30px 20px;
+  }
+
+  .cart-icon-container .MuiSvgIcon-root {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-icon-container {
+    padding: 20px 15px;
+  }
+
+  .cart-icon-container .MuiSvgIcon-root {
+    font-size: 2rem;
+  }
+}

@@ -1,8 +1,6 @@
-
-
 import React from 'react';
 import MenuSection from './MenuSection';
-import postreFondo from './img/postres/postrefondo.jpg'; // Imagen de fondo para pizzas
+import postreFondo from './img/postres/postrefondo.jpg'; 
 import postre1 from './img/postres/postre1.jpg'; 
 import postre2 from './img/postres/postre2.jpg'; 
 import postre3 from './img/postres/postre3.jpg'; 
@@ -10,55 +8,72 @@ import postre4 from './img/postres/postre4.jpg';
 import postre5 from './img/postres/postre5.jpg'; 
 import postre6 from './img/postres/postre6.jpg'; 
 import cafe from './img/postres/cafe.jpg'; 
+import CardEsqueleto from './CardEsqueleto';
 
-
-const postreData = [
+const postresData = [
   {
     image: postre1,
-    title: 'ENSALADA DE LA HUERTA',
-    description: 'Disfruta de la frescura en cada bocado con nuestra ensalada de la huerta casera. Cultivamos nuestras propias verduras para ofrecerte una mezcla crujiente y sabrosa de lechugas, tomates, pepinos y zanahorias. Un deleite directo del jardín a tu mesa.',
-    price: 6.65
+    title: 'TIRAMISÚ',
+    description: 'Postre clásico italiano con café, mascarpone y cacao.',
+    price: 7.95
   },
   {
     image: postre2,
-    title: 'HELADO CREMA Y FRUTILLA',
-    description: 'Disfruta la combinación perfecta con nuestro helado de crema y frutilla. La cremosidad se mezcla con frescas frutillas, creando un balance ideal de dulzura y acidez. Un clásico reconfortante que deleita en cada bocado.',
-    price: 6.65
+    title: 'CHEESECAKE',
+    description: 'Cheesecake con salsa de frutas del bosque.',
+    price: 8.50
   },
   {
     image: postre3,
-    title: 'TORTA ARÁNDANOS MIXTOS',
-    description: 'Nuestro pastel de arándanos mixtos es una obra maestra de sabores. La masa esponjosa se complementa con una mezcla de arándanos frescos y dulces. Perfecto para cualquier ocasión, este pastel es un festín para los sentidos.',
-    price: 6.65
+    title: 'MOUSSE DE CHOCOLATE',
+    description: 'Mousse de chocolate suave y cremosa.',
+    price: 7.75
   },
   {
     image: postre4,
-    title: 'HELADO CREMA Y CHOCOLATE',
-    description: 'Sumérgete en el placer indulgente con nuestro helado de chocolate. Cremoso y decadente, está hecho con el mejor cacao para ofrecerte una experiencia rica y satisfactoria. Ideal para los amantes del chocolate, cada cucharada es pura delicia."',
-    price: 6.65
+    title: 'HELADO ARTESANAL',
+    description: 'Helado hecho en casa con sabores variados.',
+    price: 6.90
   },
   {
     image: postre5,
-    title: 'HELADO CREMA Y MORA',
-    description: 'Refresca tus sentidos con nuestro helado de crema y mora. La suavidad de la crema se combina con la frescura de las mora, creando una mezcla deliciosa y vibrante. Ideal para el verano, es un postre que te enamorará.',
-    price: 6.65
+    title: 'PUDDING DE VAINILLA',
+    description: 'Pudding de vainilla con caramelo.',
+    price: 6.50
   },
   {
     image: postre6,
-    title: 'TORTA DE CHOCOLATE',
-    description: 'Deléitate con nuestro exquisito pastel de chocolate. Rico y húmedo, está hecho con el mejor chocolate para un sabor intenso y profundo. Perfecto para los amantes del chocolate, cada bocado es una experiencia deliciosa y memorable.',
-    price: 6.65
+    title: 'CUPCAKES VARIADOS',
+    description: 'Cupcakes variados con glaseado dulce.',
+    price: 5.95
   },
   {
     image: cafe,
-    title: 'CAFÉ ARTESANAL',
-    description: 'Dale un toque especial a tu día con nuestro café artesanal. Elaborado con granos seleccionados de las mejores cosechas, cada taza ofrece un sabor profundo y aromático. Perfecto para los amantes del café, este elixir es una delicia que despertará tus sentidos y te llenará de energía.',
-    price: 3.15
+    title: 'CAFÉ EXPRESO',
+    description: 'Café expreso fuerte y aromático.',
+    price: 3.00
   },
 ];
 
-const Postres = () => {
-  return <MenuSection title="POSTRES" headerImage={postreFondo} items={postreData} />;
+const Postres = ({ onAddToCart }) => {
+  return (
+    <div className="menu-section">
+      <h2>Postres</h2>
+      <div className="row">
+        {postresData.map((item, index) => (
+          <div className="columna" key={index}>
+            <CardEsqueleto
+              image={item.image}
+              title={item.title}
+              description={item.description}
+              price={item.price}
+              onOrderClick={() => onAddToCart(item)}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Postres;

@@ -10,6 +10,7 @@ import pizza5 from './img/pizzas/pizza5.jpg';
 import pizza6 from './img/pizzas/pizza6.jpg'; 
 import pizza7 from './img/pizzas/pizza7.jpg'; 
 import pizza8 from './img/pizzas/pizza8.jpg'; 
+import CardEsqueleto from './CardEsqueleto';
 
 const pizzasData = [
   {
@@ -62,8 +63,25 @@ const pizzasData = [
   },
 ];
 
-const Pizzas = () => {
-  return <MenuSection title="PIZZAS" headerImage={pizzaFondo} items={pizzasData} />;
+const Pizzas = ({ onAddToCart }) => {
+  return (
+    <div className="menu-section">
+      <h2>Pizzas</h2>
+      <div className="row">
+        {pizzasData.map((item, index) => (
+          <div className="columna" key={index}>
+            <CardEsqueleto
+              image={item.image}
+              title={item.title}
+              description={item.description}
+              price={item.price}
+              onOrderClick={() => onAddToCart(item)}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Pizzas;

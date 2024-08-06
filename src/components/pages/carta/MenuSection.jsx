@@ -2,10 +2,14 @@ import React from 'react';
 import CardEsqueleto from './CardEsqueleto';
 import './MenuSection.css';
 
-const MenuSection = ({ title, headerImage, items }) => {
-  const handleOrderClick = (item) => {
-    alert(`Has pedido: ${item.title}`);
-    // Aquí puedes agregar la lógica para añadir el item al carrito de compras
+const MenuSection = ({ title, headerImage, items, onAddToCart }) => {
+  const handleAddToCart = (item) => {
+    // Verificar si `onAddToCart` es una función
+    if (typeof onAddToCart === 'function') {
+      onAddToCart(item);
+    } else {
+      console.error('onAddToCart no es una función');
+    }
   };
 
   return (
@@ -22,7 +26,7 @@ const MenuSection = ({ title, headerImage, items }) => {
               title={item.title}
               description={item.description}
               price={item.price || 0} // Valor predeterminado
-              onOrderClick={() => handleOrderClick(item)}
+              onOrderClick={() => handleAddToCart(item)}
             />
           </div>
         ))}
@@ -33,4 +37,3 @@ const MenuSection = ({ title, headerImage, items }) => {
 };
 
 export default MenuSection;
-

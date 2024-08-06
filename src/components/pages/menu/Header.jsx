@@ -17,11 +17,11 @@ const items = [
 const Header = () => {
     const imagenes = () => {
         return items.map((item, index) => (
-            <div className="item" key={index}>
-                <img src={item.src} alt={item.alt} className="item-image" />
-                <div className="item-text">
-                    <h4 className="item-title">{item.name}</h4>
-                    <p className="item-description">{item.p}</p>
+            <div className="item_menu" key={index}>
+                <img src={item.src} alt={item.alt} className="item_menu_imagenes" />
+                <div className="item_menu_text">
+                    <h4 className="item_menu_title">{item.name}</h4>
+                    <p className="item_menu_description">{item.p}</p>
                 </div>
             </div>
         ));

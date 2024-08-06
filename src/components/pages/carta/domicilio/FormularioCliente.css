@@ -1,0 +1,73 @@
+.formulario-cliente {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .formulario-cliente p {
+    background: linear-gradient(to bottom, rgb(236, 85, 47) 0%, rgb(210, 50, 10) 100%);
+    display: flex;
+    justify-content: center;
+    font-family: monospace;
+    color: white;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .form-row .form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-footer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .formulario-cliente input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+  }
+  
+  .formulario-cliente button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .formulario-cliente button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .payment-icons {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .payment-icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+  .error-message {
+    color: red;
+    font-size: 16px;
+    margin-top: 10px;
+  }

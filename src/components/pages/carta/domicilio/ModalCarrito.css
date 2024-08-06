@@ -1,0 +1,210 @@
+
+/* Estilo del fondo del modal (cubre toda la pantalla) */
+.modal-carrito {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegúrate de que el modal esté sobre otros elementos */
+}
+
+/* Estilo del contenido del modal */
+.modal-content-carrito {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%; /* Ajustar para hacerlo más ancho */
+  position: relative; /* Necesario para posicionar la 'X' correctamente */
+  max-height: 80vh; /* Limitar la altura máxima del modal */
+  overflow-y: auto; /* Habilitar el desplazamiento vertical si es necesario */
+}
+
+/* Estilo para la 'X' de cerrar */
+.cerrar_carrito {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #a2a2a2;
+}
+
+.cerrar_carrito:hover {
+  color: #c82333;
+  font-size: 20px;
+}
+
+/* Contenedor de los items */
+.contenedor-item {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Estilo para los elementos del artículo */
+.item {
+  width: 95%;
+  padding: 10px 10px;
+  margin-left: 0;
+  border-bottom: 1px solid #ccc;
+  display: grid;
+  grid-template-columns: 60px 1fr auto auto auto auto auto auto; /* Ocho columnas */
+  font-weight: bold;
+  align-items: center;
+}
+
+/* Estilo para la parte inferior del item (Imagen, controles, etc.) */
+.item-details {
+  display: contents;
+}
+
+/* Estilo para los elementos de la imagen y título */
+.item-img {
+  width: 60px;  /* Tamaño fijo para ancho */
+  height: 60px; /* Tamaño fijo para alto */
+  object-fit: cover;
+}
+
+.item-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.item-title{
+  margin: 0 10px;
+
+}
+.item-price {
+  min-width: 60px;
+  margin-right: 10px; /* Espacio entre el precio y los botones */
+}
+
+.item-quantity {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 5px;
+}
+
+.quantity-btn:hover {
+  background-color: #0056b3;
+}
+
+.item-total {
+  min-width: 80px; /* Asegurar un ancho mínimo para el total */
+  margin: 0 10px;
+}
+
+.remove-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.remove-btn:hover {
+  background-color: #c82333;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between; /* Alinear el precio total y el botón eliminar */
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+/* Media Queries */
+
+/* Para pantallas medianas y pequeñas */
+@media (max-width: 768px) {
+  .modal-content-carrito {
+    padding: 10px; /* Reducir el padding */
+  }
+
+  .cerrar_carrito {
+    top: 5px;
+    right: 5px;
+    font-size: 14px;
+  }
+
+  .remove-btn {
+    padding: 5px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .item {
+    padding: 10px 0;
+    display: flex; /* Cambiar a flex en lugar de grid */
+    flex-direction: column; /* Columnas en vertical */
+    align-items: normal;
+  }
+   .item-title{
+    padding: 10px 0;
+   }
+  .item-details {
+    flex-direction: column; /* Imagen y controles en columna */
+    align-items: flex-start;
+
+  }
+
+  .item-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px; /* Espacio debajo de la imagen */
+  }
+
+  .item-info {
+    margin-bottom: 10px;
+  }
+
+  .item-price {
+    margin-bottom: 5px; /* Espacio debajo del precio */
+  }
+
+  .item-quantity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0; /* Espacio debajo de los botones */
+  }
+
+  .item-total {
+    margin: 5px 0; /* Espacio debajo del total */
+  }
+
+  .total {
+    display: flex;
+    flex-direction: column; /* Total y botón eliminar en columna */
+    font-size: 0.9rem;
+    margin-bottom: 20px; /* Reducir el espacio debajo del total */
+  }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .modal-content-carrito {
+    max-width: none; /* Eliminar el ancho máximo */
+    width: 100%; /* Ajustar el ancho a 100% para pantallas pequeñas */
+  }
+}

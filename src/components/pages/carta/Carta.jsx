@@ -1,38 +1,61 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import Drinks from './Drinks';
 import Pizzas from './Pizzas';
 import Ensaladas from './Ensaladas';
 import Pastas from './Pastas';
 import Postres from './Postres';
 import Redes from '../inicio/Redes';
+import CartIcon from './domicilio/CartIcon';
+import ModalCarrito from './domicilio/ModalCarrito';
 
 const Carta = () => {
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const element = document.getElementById(hash.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+  const [cart, setCart] = useState([]);
+  const [showCartModal, setShowCartModal] = useState(false);
+
+  const handleAddToCart = (item) => {
+    setCart(prevCart => {
+      const existingItemIndex = prevCart.findIndex(i => i.title === item.title);
+      if (existingItemIndex !== -1) {
+        const updatedCart = [...prevCart];
+        updatedCart[existingItemIndex].quantity += 1;
+        return updatedCart;
       }
-    }
-  }, []);
+      return [...prevCart, { ...item, quantity: 1 }];
+    });
+  };
+
+  const handleCartIconClick = () => {
+    setShowCartModal(true);
+  };
+
+  const handleCloseCartModal = () => {
+    setShowCartModal(false);
+  };
+
+  const getCartItemCount = () => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
+  };
 
   return (
     <>
-      <div>
-        <div id="pastas"><Pastas /></div>
-        <div id="pizzas"><Pizzas /></div>
-        <div id="ensaladas"><Ensaladas /></div>
-        <div id="postres"><Postres /></div>
-        <div id="drinks"><Drinks /></div>
+      <div className="carta-container">
+        <Pizzas onAddToCart={handleAddToCart} />
+        <Pastas onAddToCart={handleAddToCart} />
+        <Ensaladas onAddToCart={handleAddToCart} />
+        <Postres onAddToCart={handleAddToCart} />
+        <Drinks onAddToCart={handleAddToCart} />
       </div>
       <Redes />
+      <CartIcon onClick={handleCartIconClick} itemCount={getCartItemCount()} />
+      {showCartModal && (
+        <ModalCarrito
+          cartItems={cart}
+          onClose={handleCloseCartModal}
+          setCartItems={setCart}
+        />
+      )}
     </>
   );
-}
+};
 
 export default Carta;
-
-
-
-

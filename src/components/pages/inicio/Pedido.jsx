@@ -1,9 +1,11 @@
+import React from 'react';
+import { Link } from 'react-router-dom'; // Importa el componente Link de React Router
+import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining'; // Importa el ícono
 import takeAway from './video-img/take-away.jpg';
-import './Pedido.css'; 
+import './Pedido.css';
 
-const CardContent = ({ subtitle, title, mainTitle, description, items, buttonText, imageSrc }) => {
-  
 
+const CardContent = ({ subtitle, title, mainTitle, description, items, buttonText, imageSrc, onButtonClick }) => {
   return (
     <div className="contenedor">
       <div className="contenedor_hijo">
@@ -19,6 +21,12 @@ const CardContent = ({ subtitle, title, mainTitle, description, items, buttonTex
               </li>
             ))}
           </ul>
+          <div className="button-container">
+            <button onClick={onButtonClick} className="order-button">
+              <DeliveryDiningIcon />
+              {buttonText}
+            </button>
+          </div>
         </div>
         <img className='img_card' src={ imageSrc } alt="recoger" />
       </div>
@@ -26,23 +34,36 @@ const CardContent = ({ subtitle, title, mainTitle, description, items, buttonTex
   );
 };
 
-const Pedido = () => {
-  const cardData = {
-    subtitle: "EN LA TAGLIATELLA NO TENÉS QUE ESPERAR",
-    title: "TAKE AWAY",
-    mainTitle: "HACÉ TU PEDIDO ONLINE Y TE AHORRAS DE LAS LARGAS ESPERAS",
-    description: "Hacé tu pedido.! Uno de los mayores beneficios es el ahorro de tiempo. Al hacer tu pedido en línea, puedes evitar largas esperas en el restaurante. Simplemente realizas tu pedido con anticipación y lo recoges cuando esté listo, permitiéndote aprovechar mejor tu tiempo. ",
-    items: [
-      { boldText: "COMPRUEBA TU DIRECCIÓN", text: "a través de nuestra web" },
-      { boldText: "HACÉ TU PEDIDO", text: "añade todos los platos favoritos y estarán listos en pocos minutos" },
-      { boldText: "DISFRÚTALO", text: "compártelo dónde y con quien quieras" }
-    ],
-    imageSrc: takeAway
-  };
 
-  return <CardContent {...cardData} />;
-}
-
-export default Pedido;
+  const Pedido = () => {
+    const cardData = {
+      subtitle: "EN LA TAGLIATELLA NO TENÉS QUE ESPERAR",
+      title: "TAKE AWAY",
+      mainTitle: "HACÉ TU PEDIDO ONLINE Y TE AHORRAS DE LAS LARGAS ESPERAS",
+      description: "Hacé tu pedido.! Uno de los mayores beneficios es el ahorro de tiempo. Al hacer tu pedido en línea, puedes evitar largas esperas en el restaurante. Simplemente realizas tu pedido con anticipación y lo recoges cuando esté listo, permitiéndote aprovechar mejor tu tiempo. ",
+      items: [
+        { boldText: "COMPRUEBA TU DIRECCIÓN", text: "a través de nuestra web" },
+        { boldText: "HACÉ TU PEDIDO", text: "añade todos los platos favoritos y estarán listos en pocos minutos" },
+        { boldText: "DISFRÚTALO", text: "compártelo dónde y con quien quieras" }
+      ],
+      imageSrc: takeAway
+    };
+  
+    const handleButtonClick = () => {
+      // Aquí puedes realizar cualquier acción antes de redirigir, si es necesario
+      // Luego redirige a la página de la carta
+    };
+  
+    return (
+      <CardContent 
+        {...cardData} 
+        buttonText="HAZ TU PEDIDO"
+        onButtonClick={() => window.location.href = "/carta"} // Redirige a la página de la carta
+      />
+    );
+  }
+  
+  export default Pedido;
+  
 
 

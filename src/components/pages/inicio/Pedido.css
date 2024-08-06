@@ -1,116 +1,142 @@
-.contenedor{
-    margin-top: 50px;
-     padding: 10px 20px;
+/* Contenedor principal */
+.contenedor {
+  margin-top: 50px;
+  padding: 10px 20px;
 }
-.contenedor_hijo{
-    display: flex;
-    justify-content: space-around;
-}
-.contenedor_texto{
-    display: block;
-    padding: 10px 20px;
-}
-.contenedor_texto h4{
- display: flex;
- justify-content: center;
- align-items: center;
- color: rgba(210, 50, 10, 1);
-}
-.contenedor_texto h6{
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0;
-}
-.contenedor_texto h2{
-    padding: 10px 0;
-}
-.contenedor_texto .listas li{
-    font-size: 1.3rem;
-    padding: 10px 0;
-}
-.contenedor_texto .listas li span{
-    color: rgba(210, 50, 10, 1);
-    font-weight: bold;
-}
-.img_card{
-    width: 60%;
-    height: auto;
-    object-fit: cover;
-}
-.contenedor_texto .boton{
-    background-color: rgba(210, 50, 10, 1);
-    color: white;
-    border: 1px solid rgba(210, 50, 10, 1); /* Puedes ajustar el borde según sea necesario */
-    padding: 10px 20px; /* Ajusta el padding según sea necesario */
-    font-size: 16px; /* Ajusta el tamaño de fuente según sea necesario */
-    cursor: pointer;
-  }
-  .contenedor_texto .boton:hover{
-    background-color:white ;
-    color: rgba(210, 50, 10, 1);
 
-  }
+/* Contenedor hijo que incluye la imagen y el texto */
+.contenedor_hijo {
+  display: flex;
+  justify-content: space-between;
+ /* flex-wrap: wrap;  Asegura que los elementos se ajusten en pantallas más pequeñas */
+}
 
-  /* Media Queries */
+/* Contenedor de texto */
+.contenedor_texto {
+  padding: 10px 20px;
+  flex: 1 1 auto; /* Permite que el contenedor de texto crezca y se reduzca según sea necesario */
+}
+
+/* Estilo para los encabezados */
+.contenedor_texto h4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(210, 50, 10, 1);
+}
+
+.contenedor_texto h6 {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.contenedor_texto h2 {
+  padding: 10px 0;
+}
+
+/* Lista de elementos */
+.contenedor_texto .listas li {
+  font-size: 1.3rem;
+  padding: 10px 0;
+}
+
+.contenedor_texto .listas li span {
+  color: rgba(210, 50, 10, 1);
+  font-weight: bold;
+}
+
+/* Imagen de la tarjeta */
+.img_card {
+  width: 50%;
+  height: auto;
+  object-fit: fill;
+}
+
+/* Botón de pedido */
+.button-container {
+  margin-top: 20px;
+  text-align: center; /* Centra el botón dentro del contenedor */
+}
+
+.order-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007bff; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border: none;
+  border-radius: 4px; /* Bordes redondeados */
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.order-button:hover {
+  background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
+
+.order-button svg {
+  margin-right: 8px; /* Espacio entre el ícono y el texto */
+}
+
+/* Media Queries */
 @media (max-width: 992px) {
-    .contenedor_hijo {
+  .contenedor_hijo {
       flex-direction: column;
       align-items: center;
-    }
-  
-    .img_card {
-      width: 100%;
-      margin-bottom: 20px;
-    }
   }
 
-  @media (max-width: 768px) {
-    .contenedor_hijo {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .img_card {
-      width: 100%;
+  .img_card {
+      width: 80%; /* Ajusta el tamaño de la imagen en pantallas medianas */
       margin-bottom: 20px;
-    }
   }
-  
-  @media (max-width: 576px) {
-    .contenedor_hijo {
+}
+
+@media (max-width: 768px) {
+  .contenedor_hijo {
       flex-direction: column;
       align-items: center;
-    }
-  
-    .img_card {
-      width: 100%;
+  }
+
+  .img_card {
+      width: 90%; /* Ajusta el tamaño de la imagen en pantallas más pequeñas */
       margin-bottom: 20px;
-    }
-  
-    .contenedor_texto {
+  }
+}
+
+@media (max-width: 576px) {
+  .contenedor_texto {
       padding: 10px;
-    }
-  
-    .contenedor_texto h4 {
+  }
+
+  .contenedor_texto h4 {
       font-size: 1.5rem;
-    }
-  
-    .contenedor_texto h6 {
+  }
+
+  .contenedor_texto h6 {
       font-size: 1.2rem;
-    }
-  
-    .contenedor_texto h2 {
+  }
+
+  .contenedor_texto h2 {
       font-size: 1.8rem;
-    }
-  
-    .contenedor_texto .listas li {
+  }
+
+  .contenedor_texto .listas li {
       font-size: 1.1rem;
-    }
-  
-    .contenedor_texto .boton {
+  }
+
+  .order-button {
       width: 100%;
       font-size: 14px;
-    }
   }
+
+  .img_card {
+      width: 100%; /* Ajusta el tamaño de la imagen en pantallas pequeñas */
+      margin-bottom: 20px;
+  }
+}
+
