@@ -45,6 +45,31 @@
 .nav-link:hover::after {
   width: 100%;
 }
+/* src/components/style/NavBar.css */
+.ReactModal__Overlay {
+  z-index: 1000; /* Asegúrate de que el modal esté encima de otros elementos */
+  background-color: rgba(0, 0, 0, 0.5); /* Asegúrate de que el overlay sea visible */
+
+}
+
+.ReactModal__Content {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  position: relative;
+}
+
+button {
+  margin-top: 10px;
+}
+.boton_registro{
+  background-color: rgb(8, 0, 255);
+  color: white;
+  padding: 10px 0;
+  margin: 30px 20px;
+}
 
 /* Media Query para pantallas medianas y más pequeñas */
 @media (max-width: 768px) {

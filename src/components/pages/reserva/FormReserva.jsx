@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { HookForm } from './HookForm';
-import { db } from './carpetafire/Firebase';
+import { db } from '../../../iniciosesion/firebase/FirebaseSesion'; // Actualizado
 import { collection, addDoc } from 'firebase/firestore';
 import emailjs from 'emailjs-com';
 import Input from './Input';
