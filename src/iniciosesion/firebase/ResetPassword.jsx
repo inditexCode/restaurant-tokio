@@ -1,4 +1,3 @@
-// src/ResetPassword.jsx
 import React, { useState } from 'react';
 import { auth } from './FirebaseSesion';
 import { sendPasswordResetEmail } from 'firebase/auth';

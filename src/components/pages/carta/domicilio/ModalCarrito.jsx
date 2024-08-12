@@ -5,7 +5,6 @@ import FormularioCliente from './FormularioCliente';
 const ModalCarrito = ({ cartItems, onClose, setCartItems }) => {
   const modalRef = useRef(null);
   const [items, setItems] = useState(cartItems);
-  const [resetForm, setResetForm] = useState(false);
 
   useEffect(() => {
     setItems(cartItems);
@@ -15,7 +14,7 @@ const ModalCarrito = ({ cartItems, onClose, setCartItems }) => {
     const newItems = [...items];
     newItems[index].quantity += 1;
     setItems(newItems);
-    setCartItems(newItems);
+    setCartItems(newItems); // Actualiza el carrito en el componente principal
   };
 
   const handleDecreaseQuantity = (index) => {
@@ -23,14 +22,14 @@ const ModalCarrito = ({ cartItems, onClose, setCartItems }) => {
     if (newItems[index].quantity > 1) {
       newItems[index].quantity -= 1;
       setItems(newItems);
-      setCartItems(newItems);
+      setCartItems(newItems); // Actualiza el carrito en el componente principal
     }
   };
 
   const handleRemoveItem = (index) => {
     const newItems = items.filter((_, i) => i !== index);
     setItems(newItems);
-    setCartItems(newItems);
+    setCartItems(newItems); // Actualiza el carrito en el componente principal
   };
 
   const getTotalPrice = () => {
@@ -38,10 +37,14 @@ const ModalCarrito = ({ cartItems, onClose, setCartItems }) => {
   };
 
   const handlePaymentMethodClick = () => {
+    // Vacía el carrito
     setItems([]);
-    setCartItems([]);
-    setResetForm(true);
-    setTimeout(() => setResetForm(false), 0); // Para asegurar que el estado se actualice antes de limpiar el formulario
+    setCartItems([]); // Vacía el carrito en el componente principal
+
+    // Cierra el modal después de 3 segundos
+    setTimeout(() => {
+      onClose();
+    }, 3000);
   };
 
   useEffect(() => {
@@ -81,7 +84,7 @@ const ModalCarrito = ({ cartItems, onClose, setCartItems }) => {
         <div className="total">
           <strong>Total a pagar: ${getTotalPrice().toFixed(2)}</strong>
         </div>
-        <FormularioCliente itemsInCart={items.length} onPaymentMethodClick={handlePaymentMethodClick} resetForm={resetForm} />
+        <FormularioCliente itemsInCart={items.length} onPaymentMethodClick={handlePaymentMethodClick} />
       </div>
     </div>
   );

@@ -22,13 +22,15 @@
   max-height: 90vh; /* Limita la altura máxima del modal */
   overflow-y: auto;
 }
-.modal-content h2{
+
+.modal-content h2 {
   color: white;
   display: flex;
   justify-content: center;
   font-weight: 300;
   font-size: 2.5rem;
 }
+
 .modal-close {
   position: absolute;
   top: 15px;
@@ -71,7 +73,7 @@
 }
 
 .form-container button:disabled {
-  background-color:#aaa;
+  background-color: #aaa;
   cursor: not-allowed;
 }
 

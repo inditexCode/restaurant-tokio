@@ -31,8 +31,17 @@ export const AuthProvider = ({ children }) => {
   const updateUser = async (data) => {
     if (user) {
       const userRef = doc(db, 'users', user.uid);
-      await setDoc(userRef, data, { merge: true });
-      setUserData(data);
+      try {
+        await setDoc(userRef, data, { merge: true });
+
+        // Verifica la actualización
+        const updatedSnap = await getDoc(userRef);
+        if (updatedSnap.exists()) {
+          setUserData(updatedSnap.data());
+        }
+      } catch (error) {
+        console.error('Error updating user data:', error);
+      }
     }
   };
 
@@ -44,3 +53,4 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
+

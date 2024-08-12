@@ -1,0 +1,142 @@
+/* Estilo base para el contenedor principal */
+.privacy-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo para el título principal */
+  .privacy-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Estilo para la fecha de actualización */
+  .privacy-update-date {
+    font-size: 0.9em;
+    color: #888;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para los párrafos de texto */
+  .privacy-text {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  /* Estilo para los subtítulos */
+  .privacy-subtitle {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo para los subtítulos de secciones */
+  .privacy-subsection-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #444;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo para las listas */
+  .privacy-list {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .privacy-list-item {
+    margin-bottom: 10px;
+    color: #555;
+  }
+  /* Estilo para la sección de contacto */
+.privacy-contact {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+  }
+  
+  /* Estilo para el correo electrónico */
+  .privacy-email {
+    font-size: 1em;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .privacy-email:hover {
+    text-decoration: underline;
+  }
+  /* Media Query para pantallas medianas (tablets y pequeñas laptops) */
+@media (max-width: 1024px) {
+    .privacy-container {
+      padding: 15px;
+      width: 90%;
+
+    }
+  
+    .privacy-title {
+      font-size: 1.8em;
+    }
+  
+    .privacy-subtitle {
+      font-size: 1.4em;
+    }
+  
+    .privacy-subsection-title {
+      font-size: 1.1em;
+    }
+  
+    .privacy-text {
+      font-size: 0.95em;
+    }
+  
+    .privacy-email {
+      font-size: 0.95em;
+    }
+  }
+  
+  /* Media Query para pantallas pequeñas (móviles) */
+  @media (max-width: 600px) {
+    .privacy-container {
+      padding: 10px;
+      width: 90%;
+    }
+  
+    .privacy-title {
+      font-size: 1.6em;
+    }
+  
+    .privacy-subtitle {
+      font-size: 1.3em;
+    }
+  
+    .privacy-subsection-title {
+      font-size: 1em;
+    }
+  
+    .privacy-text {
+      font-size: 0.9em;
+    }
+  
+    .privacy-list {
+      padding-left: 15px;
+    }
+  
+    .privacy-email {
+      font-size: 0.9em;
+    }
+  }
+  

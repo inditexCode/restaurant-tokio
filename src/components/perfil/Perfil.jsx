@@ -1,18 +1,19 @@
 import React from 'react';
-import InfoUsuario from './InfoUsuario';
-import HistorialOrder from './HistorialOrder';
-import ComidaPreferida from './ComidaPreferida';
-
+import InfoUsuario from './formulario/InfoUsuario';
+import MenuInicio from '../pages/inicio/MenuInicio';
+import Redes from '../pages/inicio/Redes';
+import './Perfil.css';
 
 const Perfil = () => {
   return (
-    <div>
-      <h1>Mi Perfil</h1>
-       <InfoUsuario />
-       <HistorialOrder />
-       <ComidaPreferida />
+    <div className='perfil-page'>
+            <h1>INFORMACIÒN PERSONAL</h1>
+      <InfoUsuario />
+      <MenuInicio />
+      <Redes />
     </div>
   );
 };
 
 export default Perfil;
+

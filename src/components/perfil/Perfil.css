@@ -1,0 +1,47 @@
+/* Perfil.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Fondo claro para toda la página */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .perfil-page {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .perfil-page h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-family: monospace;
+  }
+  
+  .perfil-page > *:not(:last-child) {
+    margin-bottom: 20px; /* Margen inferior para cada componente */
+  }
+  
+/* Pantallas pequeñas (teléfonos en modo vertical, menos de 600px) */
+@media (max-width: 599px) {
+  .perfil-page h1 {
+      font-size: 1.5em;
+  }
+}
+
+/* Pantallas medianas (teléfonos en modo horizontal, tabletas, entre 600px y 899px) */
+@media (min-width: 600px) and (max-width: 899px) {
+  .perfil-page h1 {
+      font-size: 1.75em;
+  }
+}
+
+/* Pantallas grandes (escritorio, tabletas grandes, más de 900px) */
+@media (min-width: 900px) {
+  .perfil-page h1 {
+      font-size: 2em; /* Tamaño original */
+  }
+}  

@@ -8,11 +8,13 @@ import Menu from './components/pages/menu/Menu';
 import Carta from './components/pages/carta/Carta';
 import Reserva from './components/pages/reserva/Reserva';
 import Contactos from './components/pages/inicio/contacto/Contactos';
-import Login from './iniciosesion/firebase/Login'; // Ruta al componente de Login
-import Register from './iniciosesion/firebase/Register'; // Ruta al componente de Register
-import UserProfile from './components/perfil/Perfil'; // Ruta al componente de UserProfile
-import ResetPassword from './iniciosesion/firebase/ResetPassword'; // Importar el componente de restablecimiento de contraseña
-import { useAuth } from './iniciosesion/firebase/AuthProvider'; // Ruta al AuthProvider
+import Login from './iniciosesion/firebase/Login';
+import Register from './iniciosesion/firebase/Register';
+import UserProfile from './components/perfil/Perfil';
+import ResetPassword from './iniciosesion/firebase/ResetPassword';
+import { useAuth } from './iniciosesion/firebase/AuthProvider';
+import Banner from './cookies/Banner';  // Importar el componente Banner
+import PoliticaPrivacidad from './cookies/PoliticaPrivacidad';
 
 const Apps = () => {
   const { user } = useAuth();
@@ -20,6 +22,7 @@ const Apps = () => {
   return (
     <>
       <NavBar />
+      <Banner /> {/* Mostrar el banner de cookies */}
       <Routes>
         <Route path='/' element={<Logo />} />
         <Route path='/inicio' element={<Inicio />} />
@@ -31,8 +34,9 @@ const Apps = () => {
         <Route path='/login' element={!user ? <Login /> : <Navigate to='/' />} />
         <Route path='/register' element={!user ? <Register /> : <Navigate to='/' />} />
         <Route path='/perfil' element={user ? <UserProfile /> : <Navigate to='/login' />} />
-        <Route path='/reset-password' element={<ResetPassword />} /> {/* Ruta para restablecer la contraseña */}
+        <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/*' element={<Navigate to='/' />} />
+        <Route path='/PoliticaPrivacidad' element={<PoliticaPrivacidad />} />
       </Routes>
     </>
   );

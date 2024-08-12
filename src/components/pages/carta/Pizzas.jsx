@@ -1,6 +1,5 @@
-
 import React from 'react';
-import MenuSection from './MenuSection';
+import CardEsqueleto from './CardEsqueleto';
 import pizzaFondo from './img/pizzas/pizzafondo.jpg'; // Imagen de fondo para pizzas
 import pizza1 from './img/pizzas/pizza1.jpg'; 
 import pizza2 from './img/pizzas/pizza2.jpg'; 
@@ -10,7 +9,6 @@ import pizza5 from './img/pizzas/pizza5.jpg';
 import pizza6 from './img/pizzas/pizza6.jpg'; 
 import pizza7 from './img/pizzas/pizza7.jpg'; 
 import pizza8 from './img/pizzas/pizza8.jpg'; 
-import CardEsqueleto from './CardEsqueleto';
 
 const pizzasData = [
   {

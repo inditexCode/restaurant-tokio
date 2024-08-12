@@ -4,7 +4,7 @@ import './MenuSection.css';
 
 const MenuSection = ({ title, headerImage, items, onAddToCart }) => {
   const handleAddToCart = (item) => {
-    // Verificar si `onAddToCart` es una función
+    // Verificar si onAddToCart es una función
     if (typeof onAddToCart === 'function') {
       onAddToCart(item);
     } else {

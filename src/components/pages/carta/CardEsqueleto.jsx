@@ -9,7 +9,7 @@ const CardEsqueleto = ({ image, title, description, price, onOrderClick }) => {
       <div className="card-body d-flex flex-column">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{description}</p>
-        <p className="card-price">{`$ ${price}`}</p>
+        <p className="card-price">${price}</p>
         <button className="btn btn-primary mt-auto" onClick={onOrderClick}>
           PEDIR A DOMICILIO
         </button>
@@ -27,9 +27,6 @@ CardEsqueleto.propTypes = {
 };
 
 export default CardEsqueleto;
-
-
-
 
 
 
