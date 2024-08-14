@@ -12,7 +12,7 @@ const Markers = () => {
         {positions.map((position, index) => (
           <Marker key={ index } position={ position }>
              <Tooltip permanent direction="top">
-                  <b>La tagliatela <IconFood sx={{ fontSize: 36 }} className='icon-food'/> </b><br /> Av. Manzana 25 A
+                  <b>il Napoli <IconFood sx={{ fontSize: 36 }} className='icon-food'/> </b><br /> Av. Manzana 25 A
              </Tooltip>
           </Marker>
         ))}

@@ -1,58 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { auth } from './FirebaseSesion';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import './ResetPassword.css';
 
-const ResetPassword = () => {
-  const [email, setEmail] = useState('');
+const ResetPassword = ({ email, onClose }) => {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [isEmailSent, setIsEmailSent] = useState(false);
 
-  const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-    return re.test(email);
-  };
-
-  const handleSendEmail = async (e) => {
+  const handleResetPassword = async (e) => {
     e.preventDefault();
-    if (!validateEmail(email)) {
-      setError('Email no válido');
-      return;
-    }
-    
     try {
       await sendPasswordResetEmail(auth, email);
       setIsEmailSent(true);
-      setMessage('Se ha enviado un correo electrónico para restablecer tu contraseña. Revisa tu correo para obtener el enlace de restablecimiento.');
-      setTimeout(() => {
-        setEmail('');
-        setMessage('');
-        setError('');
-        setIsEmailSent(false);
-      }, 3000);
+      setMessage('Se ha enviado un correo electrónico para restablecer tu contraseña.');
+      // Cierra el modal inmediatamente después de enviar el correo
+      onClose();
     } catch (error) {
-      setError(`Error: ${error.message}`);
+      console.error('Error al enviar el correo de restablecimiento:', error);
+      setError('Hubo un error al enviar el correo de restablecimiento. Por favor, inténtalo de nuevo.');
     }
   };
 
+  useEffect(() => {
+    return () => {
+      setError('');
+      setMessage('');
+      setIsEmailSent(false);
+    };
+  }, []);
+
   return (
     <div className="reset-password-container">
-      <h2>Restablecer Contraseña</h2>
-      <form onSubmit={handleSendEmail}>
+      <form onSubmit={handleResetPassword}>
         <input
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          readOnly
           placeholder="Email"
-          required
-          autoComplete="email"
-          pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
-          title="El email debe tener un formato válido (ejemplo@dominio.com)."
         />
-        <button type="submit">Enviar correo para restablecer contraseña</button>
-        {error && <p className="error-message">{error}</p>}
-        {message && <p className="success-message">{message}</p>}
+        <button type="submit">
+          ENVIAR CÓDIGO
+        </button>
+        {message && <p className="message">{message}</p>}
+        {error && <p className="error">{error}</p>}
+        <button type="button" onClick={onClose}>Cerrar</button>
       </form>
     </div>
   );

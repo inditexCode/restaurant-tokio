@@ -1,18 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.css';
 
 const Modal = ({ isOpen, onClose, children }) => {
-  useEffect(() => {
-    const handleOutsideClick = (e) => {
-      if (e.target.className === 'modal-overlay') {
-        onClose();
-      }
-    };
-
-    document.addEventListener('mousedown', handleOutsideClick);
-    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  const handleOutsideClick = useCallback((e) => {
+    if (e.target.classList.contains('modal-overlay')) {
+      onClose();
+    }
   }, [onClose]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener('mousedown', handleOutsideClick);
+    }
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, [isOpen, handleOutsideClick]);
 
   if (!isOpen) return null;
 

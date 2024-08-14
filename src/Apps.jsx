@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Logo from './components/pages/Logo';
@@ -19,6 +19,26 @@ import PoliticaPrivacidad from './cookies/PoliticaPrivacidad';
 const Apps = () => {
   const { user } = useAuth();
 
+  // Handler para el clic en "Olvidé mi contraseña"
+  const handleForgotPasswordClick = (email) => {
+    console.log('handleForgotPasswordClick en VisibilidadModales con email:', email);
+    if (email) {
+      setEmailForReset(email);
+      setShowLoginModal(false);
+      setShowResetPasswordModal(true);
+      setModalKey((prevKey) => prevKey + 1);
+    } else {
+      console.error('Email no proporcionado para restablecimiento de contraseña');
+    }
+  };
+  
+
+  // Handler para el éxito de inicio de sesión
+  const handleLoginSuccess = useCallback(() => {
+    console.log('Inicio de sesión exitoso');
+    // Aquí podrías manejar lo que sucede después de un inicio de sesión exitoso
+  }, []);
+
   return (
     <>
       <NavBar />
@@ -31,7 +51,16 @@ const Apps = () => {
         <Route path='/carta' element={<Carta />} />
         <Route path='/reserva' element={<Reserva />} />
         <Route path='/contacto' element={<Contactos />} />
-        <Route path='/login' element={!user ? <Login /> : <Navigate to='/' />} />
+        <Route 
+          path='/login' 
+          element={!user ? 
+            <Login 
+              onForgotPassword={handleForgotPasswordClick} 
+              onLoginSuccess={handleLoginSuccess} 
+            /> 
+            : 
+            <Navigate to='/' />} 
+        />
         <Route path='/register' element={!user ? <Register /> : <Navigate to='/' />} />
         <Route path='/perfil' element={user ? <UserProfile /> : <Navigate to='/login' />} />
         <Route path='/reset-password' element={<ResetPassword />} />
@@ -44,3 +73,6 @@ const Apps = () => {
 
 export default Apps;
 
+
+// Contraseña emailjs - Tokio@2715......... lo mismo para firebase, Tokio@2715
+//          <Route path='/login' element={!user ? <VisibilidadModales /> : <Navigate to='/' />} />

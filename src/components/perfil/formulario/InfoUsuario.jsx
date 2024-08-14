@@ -1,10 +1,8 @@
-// InfoUsuario.jsx
-
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../../../iniciosesion/firebase/AuthProvider'; // Ajusta la ruta
+import { useAuth } from '../../../iniciosesion/firebase/AuthProvider';
 import Formulario from './Formulario';
 import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../../iniciosesion/firebase/FirebaseSesion'; // Ajusta la ruta
+import { db } from '../../../iniciosesion/firebase/FirebaseSesion';
 import './InfoUsuario.css';
 
 const InfoUsuario = () => {
@@ -18,30 +16,28 @@ const InfoUsuario = () => {
   });
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      if (user) {
+    if (user) {
+      const fetchUserData = async () => {
         try {
           const userRef = doc(db, 'users', user.uid);
           const userSnap = await getDoc(userRef);
           if (userSnap.exists()) {
-            const userData = userSnap.data();
-
-            // Eliminar cualquier propiedad que no sea relevante
-            const { nombre, apellido, fechaNacimiento, telefono } = userData;
-            setFormData({ nombre, apellido, fechaNacimiento, telefono });
+            setFormData(userSnap.data());
           }
         } catch (error) {
           console.error('Error fetching user data:', error);
         }
-      }
-    };
+      };
 
-    fetchUserData();
+      fetchUserData();
+    }
   }, [user]);
 
   if (loading) return <p className="cargando">Cargando...</p>;
 
-  if (!user) return <p className="no-sesion">No has iniciado sesión</p>;
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

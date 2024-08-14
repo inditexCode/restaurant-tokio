@@ -14,7 +14,7 @@ const FormContacto = () => {
       return;
     }
 
-    emailjs.sendForm('service_43h6eea', 'template_k9r7jrr', formRef.current, '202e02eHTY_6GZAXa')
+    emailjs.sendForm('service_43h6eea', 'template_kmuw4ri', formRef.current, '202e02eHTY_6GZAXa')
       .then(response => {
         console.log('SUCCESS!', response.status, response.text);
       })

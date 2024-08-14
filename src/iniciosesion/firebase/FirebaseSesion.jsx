@@ -1,6 +1,6 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
+import { getAuth, setPersistence, browserLocalPersistence } from 'firebase/auth';
 import { getAnalytics } from 'firebase/analytics';
 
 // Configuración de Firebase
@@ -27,4 +27,6 @@ const app = getApp();
 
 export const db = getFirestore(app);
 export const auth = getAuth(app);
+setPersistence(auth, browserLocalPersistence); // Establece la persistencia en el almacenamiento local
+
 const analytics = getAnalytics(app); // Exporta Analytics si lo usas

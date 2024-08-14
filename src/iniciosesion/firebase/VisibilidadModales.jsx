@@ -2,46 +2,54 @@ import React, { useState, useCallback } from 'react';
 import Login from './Login';
 import ResetPassword from './ResetPassword';
 import Modal from './Modal';
-import './App.css';
 
 const VisibilidadModales = () => {
   const [showLoginModal, setShowLoginModal] = useState(true);
   const [showResetPasswordModal, setShowResetPasswordModal] = useState(false);
   const [modalKey, setModalKey] = useState(0);
+  const [emailForReset, setEmailForReset] = useState('');
 
-  // Función para manejar el cierre del modal de login después del inicio de sesión exitoso
   const handleLoginSuccess = useCallback(() => {
-    console.log('handleLoginSuccess llamado');
     setShowLoginModal(false);
-    // Forzar un cambio en el estado para el re-renderizado del modal
     setModalKey(prevKey => prevKey + 1);
   }, []);
 
-  // Función para manejar el clic en "Olvidé mi contraseña"
-  const handleForgotPasswordClick = () => {
-    setShowLoginModal(false);
-    setShowResetPasswordModal(true);
-    setModalKey(prevKey => prevKey + 1);
+  const handleForgotPasswordClick = (email) => {
+    if (email) {
+      setEmailForReset(email);
+      setShowLoginModal(false);
+      setShowResetPasswordModal(true);
+      setModalKey(prevKey => prevKey + 1);
+    } else {
+      console.error('Email no proporcionado para restablecimiento de contraseña');
+    }
   };
 
-  // Función para cerrar el modal de restablecimiento de contraseña
-  const handleCloseResetPassword = () => {
+  const closeResetPasswordModal = () => {
     setShowResetPasswordModal(false);
     setShowLoginModal(true);
-    setModalKey(prevKey => prevKey + 1);
+  };
+
+  const handleCloseLoginModal = () => {
+    setShowLoginModal(false);
+    setModalKey(prevKey => prevKey + 1); // Reinicia la clave del modal para forzar el reinicio
   };
 
   return (
     <div className="app">
       {showLoginModal && (
-        <Modal key={`login-${modalKey}`} isOpen={showLoginModal} onClose={() => setShowLoginModal(false)}>
-          <Login onForgotPassword={handleForgotPasswordClick} onLoginSuccess={handleLoginSuccess} />
+        <Modal key={`login-${modalKey}`} isOpen={showLoginModal} onClose={handleCloseLoginModal}>
+          <Login 
+            onForgotPassword={handleForgotPasswordClick} 
+            onLoginSuccess={handleLoginSuccess} 
+            onClose={handleCloseLoginModal} 
+          />
         </Modal>
       )}
 
       {showResetPasswordModal && (
-        <Modal key={`reset-${modalKey}`} isOpen={showResetPasswordModal} onClose={handleCloseResetPassword}>
-          <ResetPassword />
+        <Modal key={`reset-${modalKey}`} isOpen={showResetPasswordModal} onClose={closeResetPasswordModal}>
+          <ResetPassword email={emailForReset} onClose={closeResetPasswordModal} />
         </Modal>
       )}
     </div>
