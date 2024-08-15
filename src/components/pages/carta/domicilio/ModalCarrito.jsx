@@ -3,13 +3,18 @@ import './ModalCarrito.css';
 import FormularioCliente from './FormularioCliente';
 
 const ModalCarrito = ({ cartItems, onClose, setCartItems }) => {
+  // Referencia al modal para manejar clics fuera del modal
   const modalRef = useRef(null);
+
+  // Estado local para manejar los artículos en el carrito
   const [items, setItems] = useState(cartItems);
 
+  // Actualiza el estado local cuando cambian los cartItems
   useEffect(() => {
     setItems(cartItems);
   }, [cartItems]);
 
+  // Maneja el aumento de la cantidad de un artículo
   const handleIncreaseQuantity = (index) => {
     const newItems = [...items];
     newItems[index].quantity += 1;
@@ -17,6 +22,7 @@ const ModalCarrito = ({ cartItems, onClose, setCartItems }) => {
     setCartItems(newItems); // Actualiza el carrito en el componente principal
   };
 
+  // Maneja la disminución de la cantidad de un artículo
   const handleDecreaseQuantity = (index) => {
     const newItems = [...items];
     if (newItems[index].quantity > 1) {
@@ -26,18 +32,20 @@ const ModalCarrito = ({ cartItems, onClose, setCartItems }) => {
     }
   };
 
+  // Maneja la eliminación de un artículo del carrito
   const handleRemoveItem = (index) => {
     const newItems = items.filter((_, i) => i !== index);
     setItems(newItems);
     setCartItems(newItems); // Actualiza el carrito en el componente principal
   };
 
+  // Calcula el precio total de los artículos en el carrito
   const getTotalPrice = () => {
     return items.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
+  // Maneja el clic en el método de pago, vacía el carrito y cierra el modal después de 3 segundos
   const handlePaymentMethodClick = () => {
-    // Vacía el carrito
     setItems([]);
     setCartItems([]); // Vacía el carrito en el componente principal
 
@@ -47,6 +55,7 @@ const ModalCarrito = ({ cartItems, onClose, setCartItems }) => {
     }, 3000);
   };
 
+  // Cierra el modal si se hace clic fuera de él
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
@@ -64,7 +73,7 @@ const ModalCarrito = ({ cartItems, onClose, setCartItems }) => {
         <span className="cerrar_carrito" onClick={onClose}>X</span>
         <h2>Pedidos a Domicilio</h2>
         {items.length === 0 ? (
-          <p>El carrito está vacío.</p>
+          <p>El carrito está vacío.</p> // Mensaje cuando el carrito está vacío
         ) : (
           <ul className="contenedor-item">
             {items.map((item, index) => (

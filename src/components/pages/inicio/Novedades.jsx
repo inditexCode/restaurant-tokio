@@ -7,12 +7,7 @@ import IconFood from '@mui/icons-material/Dining';
 import BotonReserva from '../reserva/BotonReserva';
 
 
-
-
-
 const Novedades = () => {
-
-  
 
   return (
     <>

@@ -17,10 +17,7 @@ const firebaseConfig = {
 // Verifica si Firebase ya está inicializado
 const apps = getApps();
 if (apps.length === 0) {
-  console.log('Inicializando Firebase');
   initializeApp(firebaseConfig);
-} else {
-  console.log('Firebase ya está inicializado');
 }
 
 const app = getApp();

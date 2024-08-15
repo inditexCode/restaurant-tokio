@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
+// Componente customizado para manejar el estado del formulario y su validación
 const UseForm = ({ onSubmit }) => {
+  // Estado para almacenar los valores del formulario
   const [formState, setFormState] = useState({
     name: '',
     apellido: '',
@@ -10,20 +12,27 @@ const UseForm = ({ onSubmit }) => {
     checkbox: false
   });
 
+  // Estado para almacenar los mensajes de error de validación
   const [errors, setErrors] = useState({});
+  // Estado para manejar el estado de envío del formulario
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Desestructuración de los valores del formulario
   const { name, apellido, email, asunto, descripcion, checkbox } = formState;
 
+  // Función que maneja los cambios en los campos del formulario
   const onInputChange = ({ target }) => {
     const { name, value, type, checked } = target;
-    if (isSubmitting) return; // Prevent input if form is submitting
+    if (isSubmitting) return; // Previene cambios en el formulario mientras se está enviando
+
+    // Actualiza el estado del formulario con el nuevo valor
     setFormState({
       ...formState,
       [name]: type === 'checkbox' ? checked : value.trimStart()
     });
 
+    // Limpia el mensaje de error para el campo correspondiente
     if (errors[name]) {
       setErrors({
         ...errors,
@@ -32,11 +41,12 @@ const UseForm = ({ onSubmit }) => {
     }
   };
 
+  // Función para validar el formulario
   const validateForm = () => {
     let valid = true;
     const newErrors = {};
 
-    // Validación de cada campo
+    // Validación de cada campo del formulario
     if (!name || !/^[A-Za-z]+$/.test(name)) {
       newErrors.name = 'El campo Nombre es obligatorio y solo debe contener texto.';
       valid = false;
@@ -62,17 +72,19 @@ const UseForm = ({ onSubmit }) => {
       valid = false;
     }
 
-    setErrors(newErrors);
-    return valid;
+    setErrors(newErrors); // Actualiza los errores en el estado
+    return valid; // Retorna si el formulario es válido o no
   };
 
+  // Función que maneja el envío del formulario
   const handleSubmit = (event) => {
-    event.preventDefault();
-    if (validateForm()) {
-      onSubmit(formState);
-      setIsSubmitting(true);
-      setIsSubmitted(true);
-      setFormState({
+    event.preventDefault(); // Previene el comportamiento por defecto del formulario
+
+    if (validateForm()) { // Valida el formulario
+      onSubmit(formState); // Llama a la función onSubmit pasada como prop con el estado del formulario
+      setIsSubmitting(true); // Marca que el formulario está en proceso de envío
+      setIsSubmitted(true); // Marca que el formulario ha sido enviado
+      setFormState({ // Limpia el estado del formulario después de enviar
         name: '',
         apellido: '',
         email: '',
@@ -81,13 +93,14 @@ const UseForm = ({ onSubmit }) => {
         checkbox: false
       });
 
-      setTimeout(() => {
+      setTimeout(() => { // Restaura el estado de envío después de 5 segundos
         setIsSubmitted(false);
         setIsSubmitting(false);
-      }, 5000); // Hide success message after 5 seconds
+      }, 5000); // Tiempo para ocultar el mensaje de éxito
     }
   };
 
+  // Retorna el estado del formulario y las funciones para ser usadas en el componente que lo consume
   return {
     formState,
     errors,
@@ -98,7 +111,7 @@ const UseForm = ({ onSubmit }) => {
   };
 };
 
-export default UseForm;
+export default UseForm; 
 
 
 

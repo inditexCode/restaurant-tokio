@@ -1,5 +1,5 @@
 import React from 'react';
-import './PoliticaPrivacidad.css'; // Importa el archivo CSS
+import './PoliticaPrivacidad.css'; // Importa el archivo CSS para los estilos
 
 const PoliticaPrivacidad = () => {
   return (

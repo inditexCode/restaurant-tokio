@@ -21,7 +21,6 @@ const Apps = () => {
 
   // Handler para el clic en "Olvidé mi contraseña"
   const handleForgotPasswordClick = (email) => {
-    console.log('handleForgotPasswordClick en VisibilidadModales con email:', email);
     if (email) {
       setEmailForReset(email);
       setShowLoginModal(false);
@@ -31,12 +30,12 @@ const Apps = () => {
       console.error('Email no proporcionado para restablecimiento de contraseña');
     }
   };
-  
 
   // Handler para el éxito de inicio de sesión
   const handleLoginSuccess = useCallback(() => {
-    console.log('Inicio de sesión exitoso');
     // Aquí podrías manejar lo que sucede después de un inicio de sesión exitoso
+    // Aqui podria  por ejemplo redirigir al usuario, actualizar un estado, etc
+   
   }, []);
 
   return (
@@ -75,4 +74,3 @@ export default Apps;
 
 
 // Contraseña emailjs - Tokio@2715......... lo mismo para firebase, Tokio@2715
-//          <Route path='/login' element={!user ? <VisibilidadModales /> : <Navigate to='/' />} />

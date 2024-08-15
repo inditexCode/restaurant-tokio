@@ -18,12 +18,13 @@ const CardEsqueleto = ({ image, title, description, price, onOrderClick }) => {
   );
 };
 
+// Definición de los tipos de las props que el componente espera recibir
 CardEsqueleto.propTypes = {
-  image: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  onOrderClick: PropTypes.func.isRequired,
+  image: PropTypes.string.isRequired, // URL de la imagen del producto
+  title: PropTypes.string.isRequired, // Título del producto
+  description: PropTypes.string.isRequired, // Descripción del producto
+  price: PropTypes.number.isRequired, // Precio del producto
+  onOrderClick: PropTypes.func.isRequired, // Función que se ejecuta al hacer clic en el botón
 };
 
 export default CardEsqueleto;

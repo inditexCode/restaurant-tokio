@@ -6,42 +6,63 @@ import Register from '../iniciosesion/firebase/Register';
 import { auth } from '../iniciosesion/firebase/FirebaseSesion';
 import { signOut } from 'firebase/auth';
 import { useAuth } from '../iniciosesion/firebase/AuthProvider';
-import './style/NavBar.css'; // Asegúrate de que esta ruta sea correcta
+import './style/NavBar.css'; 
+import PersonIcon from '@mui/icons-material/Person';
+import ListIcon from '@mui/icons-material/List'; 
 
 const NavBar = () => {
+  // Estado para controlar la visibilidad del modal de autenticación
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  // Estado para determinar si se debe mostrar el formulario de inicio de sesión o registro
   const [isLogin, setIsLogin] = useState(true);
+  // Estado para controlar la visibilidad del menú de navegación desplegable en pantallas pequeñas
   const [isNavOpen, setIsNavOpen] = useState(false);
+  // Estado para controlar la visibilidad del menú desplegable de opciones del usuario
+  const [showUserOptions, setShowUserOptions] = useState(false);
+
+  // Referencias para manejar clics fuera del menú de navegación y menú de usuario
   const navRef = useRef(null);
+  const userOptionsRef = useRef(null);
+
+  // Hook para manejar la navegación programática
   const navigate = useNavigate();
+
+  // Hook que proporciona el estado del usuario autenticado
   const { user } = useAuth();
 
+  // Abre el modal de autenticación
   const openModal = () => setModalIsOpen(true);
+  // Cierra el modal de autenticación
   const closeModal = () => setModalIsOpen(false);
+  // Alterna entre los formularios de inicio de sesión y registro
   const toggleForm = () => setIsLogin(!isLogin);
 
+  // Maneja el cierre de sesión del usuario
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      navigate('/');
+      navigate('/'); // Redirige al usuario a la página principal después del cierre de sesión
     } catch (error) {
+      // Maneja errores al cerrar sesión
       console.error('Error al cerrar sesión: ', error);
     }
   };
 
+  // Alterna la visibilidad del menú de navegación desplegable
   const toggleNav = () => setIsNavOpen(!isNavOpen);
 
-  // Función para manejar el clic en "Olvidé mi contraseña"
+  // Función que maneja el clic en el botón "Olvidé mi contraseña"
   const handleForgotPasswordClick = (email) => {
-    console.log('handleForgotPasswordClick en NavBar con email:', email);
-    // Aquí podrías abrir un modal o redirigir al usuario a una página de recuperación de contraseña
+    // Aquí se podría manejar la lógica de recuperación de contraseña
   };
 
-  // Cierra el menú al hacer clic fuera de él
+  // Hook para manejar el cierre del menú al hacer clic fuera de él
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (navRef.current && !navRef.current.contains(event.target)) {
+      if (navRef.current && !navRef.current.contains(event.target) &&
+          userOptionsRef.current && !userOptionsRef.current.contains(event.target)) {
         setIsNavOpen(false);
+        setShowUserOptions(false); // Cierra el menú desplegable si se hace clic fuera
       }
     };
 
@@ -77,18 +98,27 @@ const NavBar = () => {
               <li className="nav-item">
                 <NavLink to="/reserva" className="nav-link">RESERVA</NavLink>
               </li>
-              {user && (
-                <li className="nav-item">
-                  <NavLink to="/perfil" className="nav-link">Perfil</NavLink>
-                </li>
-              )}
               {user ? (
-                <li className="nav-item">
-                  <button className="nav-link btn btn-danger" onClick={handleLogout}>Cerrar sesión</button>
+                <li className="nav-item" ref={userOptionsRef}>
+                  <button 
+                    className="nav-link btn btn-list" 
+                    onClick={() => setShowUserOptions(!showUserOptions)}
+                  >
+                    <ListIcon style={{ fontSize: '40px', marginRight: '10px' }} />
+                  </button>
+                  {showUserOptions && (
+                    <div className="user-options-dropdown">
+                      <NavLink to="/perfil" className="nav-link">Perfil</NavLink>
+                      <button className="nav-link btn btn-danger" onClick={handleLogout}>Cerrar sesión</button>
+                    </div>
+                  )}
                 </li>
               ) : (
                 <li className="nav-item">
-                  <button className="nav-link btn btn-primary" onClick={openModal}>Iniciar sesión</button>
+                  <button className="nav-link btn btn-login" onClick={openModal}>
+                    <PersonIcon style={{ fontSize: '40px', marginRight: '10px' }} />
+                    Iniciar sesión
+                  </button>
                 </li>
               )}
             </ul>
@@ -96,6 +126,7 @@ const NavBar = () => {
         </div>
       </nav>
 
+      {/* Modal que contiene los formularios de inicio de sesión y registro */}
       <Modal isOpen={modalIsOpen} onClose={closeModal}>
         {isLogin ? (
           <Login onForgotPassword={handleForgotPasswordClick} onLoginSuccess={closeModal} />
@@ -111,3 +142,13 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+
+/**Estados (useState):
+
+modalIsOpen: Controla si el modal de autenticación está abierto o cerrado.
+isLogin: Determina si se debe mostrar el formulario de inicio de sesión (true) o el de registro (false).
+isNavOpen: Controla si el menú de navegación desplegable está abierto o cerrado en pantallas pequeñas.
+showUserOptions: Controla la visibilidad del menú desplegable de opciones del usuario.
+
+ */

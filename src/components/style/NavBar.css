@@ -5,33 +5,30 @@
 }
 
 .navbar-brand {
-  font-size: 2.5rem; /* Tamaño del texto del logo */
-  margin-right: auto; /* Empuja el logo a la izquierda */
+  font-size: 2.5rem;
+  margin-right: auto;
   padding: 0 10px;
   color: rgba(140, 23, 19, 1);
-  display: flex; /* Para que las partes del logo estén en línea */
+  display: flex;
 }
 
-
-
-
 .navbar-nav {
-  margin-left: auto; /* Empuja los elementos a la derecha */
+  margin-left: auto;
+  align-items:first baseline;
 }
 
 .nav-link {
-
   font-size: 1.2rem;
   color: rgba(140, 23, 19, 1);
   letter-spacing: 1.8px;
   word-spacing: 1rem;
-  margin-left: 15px; 
+  margin-left: 15px;
   margin-right: 25px;
-  position: relative; /* Necesario para posicionar el pseudo-elemento */
+  position: relative;
   margin-bottom: 1px;
   cursor: pointer;
-  text-decoration: none; /* Quita el subrayado por defecto */
-  padding-bottom: 4px; /* Espacio para la línea */
+  text-decoration: none;
+  padding-bottom: 4px;
   transition: color 0.3s ease;
 }
 
@@ -39,24 +36,24 @@
   content: '';
   position: absolute;
   left: 0;
-  bottom: -4px; /* Espacio entre la palabra y la línea */
+  bottom: -4px;
   width: 0%;
-  height: 2px; /* Altura de la línea */
-  background: linear-gradient(to right, rgba(10, 2, 239, 0) 0%, rgb(26, 26, 28) 50%, rgba(10, 2, 239, 0) 100%); /* Gradiente */
+  height: 2px;
+  background: linear-gradient(to right, rgba(10, 2, 239, 0) 0%, rgb(26, 26, 28) 50%, rgba(10, 2, 239, 0) 100%);
   transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-     color: black;
+  color: black;
 }
+
 .nav-link:hover::after {
   width: 100%;
 }
-/* src/components/style/NavBar.css */
-.ReactModal__Overlay {
-  z-index: 1000; /* Asegúrate de que el modal esté encima de otros elementos */
-  background-color: rgba(0, 0, 0, 0.5); /* Asegúrate de que el overlay sea visible */
 
+.ReactModal__Overlay {
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .ReactModal__Content {
@@ -71,38 +68,110 @@
 button {
   margin-top: 10px;
 }
-.boton_registro{
+
+.boton_registro {
   background-color: rgb(8, 0, 255);
   color: white;
   padding: 10px 0;
   margin: 30px 20px;
 }
+.btn-login {
+  background-color: rgba(0, 123, 255, 0.647); 
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
 
-/* Media Query para pantallas medianas y más pequeñas */
+.btn-login:hover {
+  background-color: rgba(0, 123, 255, 0.8); 
+}
+
+
+.user-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-options .nav-item {
+  margin-bottom: 10px;
+}
+
+.btn-list {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+ font-size: 2rem;
+}
+
+.user-options-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 10px;
+  z-index: 1000;
+}
+
+.user-options-dropdown .nav-link,
+.user-options-dropdown .btn {
+  display: block;
+  padding: 5px;
+  color: rgba(140, 23, 19, 1);
+  text-decoration: none;
+}
+
+.user-options-dropdown .nav-link:hover,
+.user-options-dropdown .btn:hover {
+  background-color: rgba(0, 123, 255, 0.1); 
+}
+
+@media (max-width: 992px){
+  .user-options-dropdown {
+    position: static; 
+    top: auto; 
+    right: auto; 
+    background-color: transparent; 
+    border: none; 
+    box-shadow: none; 
+    z-index: auto; 
+    padding: 0; 
+  }
+}
+
+
 @media (max-width: 768px) {
   .nav-link {
     font-size: 0.8rem;
-    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    position: relative;
     margin-bottom: 1px;
     cursor: pointer;
-    text-decoration: none; /* Quita el subrayado por defecto */
-    padding-bottom: 4px; /* Espacio para la línea */
+    text-decoration: none;
+    padding-bottom: 4px;
   }
+
   .nav-link::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 2.5px; /* Altura de la línea */
-    background: linear-gradient(to right, rgba(10, 2, 239, 0) 0%, rgba(140, 23, 19, 1) 50%, rgba(10, 2, 239, 0) 100%); /* Gradiente */
+    height: 2.5px;
+    background: linear-gradient(to right, rgba(10, 2, 239, 0) 0%, rgba(140, 23, 19, 1) 50%, rgba(10, 2, 239, 0) 100%);
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.3s ease;
   }
+
   .nav-link:hover::after {
     transform: scaleX(1);
   }
+
   .navbar-collapse {
     display: none !important;
   }
@@ -114,36 +183,272 @@ button {
   .navbar-collapse.show {
     display: block !important;
   }
+
+  .user-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .user-options .nav-item {
+    width: 100%;
+  }
+
+  .user-options .nav-link,
+  .user-options .btn {
+    text-align: left;
+    width: 100%;
+  
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+  .user-options-dropdown {
+    position: static; 
+    top: auto; 
+    right: auto; 
+    background-color: transparent; 
+    border: none; 
+    box-shadow: none; 
+    z-index: auto; 
+    padding: 0; 
+  }
 }
 
 
 /*
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import Modal from '../iniciosesion/firebase/Modal'; // Asegúrate de la ruta correcta
-import Login from '../iniciosesion/firebase/Login'; // Ajusta la ruta si es necesario
-import Register from '../iniciosesion/firebase/Register'; // Ajusta la ruta si es necesario
-import { auth } from '../iniciosesion/firebase/FirebaseSesion'; // Importa auth
-import { signOut } from 'firebase/auth'; // Importa signOut
-import { useAuth } from '../iniciosesion/firebase/AuthProvider'; // Importa useAuth
-import './style/NavBar.css'; // Asegúrate de que esta es la ruta correcta
+.contenedor {
+  padding: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-brand {
+  font-size: 2.5rem;
+  margin-right: auto;
+  padding: 0 10px;
+  color: rgba(140, 23, 19, 1);
+  display: flex;
+}
+
+.navbar-nav {
+  margin-left: auto;
+  align-items: center;
+
+
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  color: rgba(140, 23, 19, 1);
+  letter-spacing: 1.8px;
+  word-spacing: 1rem;
+  margin-left: 15px;
+  margin-right: 25px;
+  position: relative;
+  margin-bottom: 1px;
+  cursor: pointer;
+  text-decoration: none;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(to right, rgba(10, 2, 239, 0) 0%, rgb(26, 26, 28) 50%, rgba(10, 2, 239, 0) 100%);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.ReactModal__Overlay {
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ReactModal__Content {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  position: relative;
+}
+
+button {
+  margin-top: 10px;
+}
+
+.boton_registro {
+  background-color: rgb(8, 0, 255);
+  color: white;
+  padding: 10px 0;
+  margin: 30px 20px;
+}
+.btn-login {
+  background-color: rgba(0, 123, 255, 0.647); 
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: rgba(0, 123, 255, 0.8); 
+}
+
+
+.user-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-options .nav-item {
+  margin-bottom: 10px;
+}
+
+.btn-list {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+ font-size: 2rem;
+}
+
+.user-options-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 10px;
+  z-index: 1000;
+}
+
+.user-options-dropdown .nav-link,
+.user-options-dropdown .btn {
+  display: block;
+  padding: 5px;
+  color: rgba(140, 23, 19, 1);
+  text-decoration: none;
+}
+
+.user-options-dropdown .nav-link:hover,
+.user-options-dropdown .btn:hover {
+  background-color: rgba(0, 123, 255, 0.1); 
+}
+
+
+@media (max-width: 768px) {
+  .nav-link {
+    font-size: 0.8rem;
+    position: relative;
+    margin-bottom: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    padding-bottom: 4px;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2.5px;
+    background: linear-gradient(to right, rgba(10, 2, 239, 0) 0%, rgba(140, 23, 19, 1) 50%, rgba(10, 2, 239, 0) 100%);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .navbar-collapse {
+    display: none !important;
+  }
+
+  .navbar-toggler {
+    display: block !important;
+  }
+
+  .navbar-collapse.show {
+    display: block !important;
+  }
+
+  .user-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .user-options .nav-item {
+    width: 100%;
+  }
+
+  .user-options .nav-link,
+  .user-options .btn {
+    text-align: left;
+    width: 100%;
+  
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+}
+
+*/
+
+/*********************************************************
+
+
+
+import React, { useState, useRef, useEffect } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import Modal from '../iniciosesion/firebase/Modal';
+import Login from '../iniciosesion/firebase/Login';
+import Register from '../iniciosesion/firebase/Register';
+import { auth } from '../iniciosesion/firebase/FirebaseSesion';
+import { signOut } from 'firebase/auth';
+import { useAuth } from '../iniciosesion/firebase/AuthProvider';
+import './style/NavBar.css'; // Asegúrate de que esta ruta sea correcta
+import PersonIcon from '@mui/icons-material/Person';
+import ListIcon from '@mui/icons-material/List'; // Importa el icono de lista
 
 const NavBar = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
-  const [isNavOpen, setIsNavOpen] = useState(false); // Estado para controlar el menú de navegación
-  const navRef = useRef(null); // Referencia para la navegación
-  const { user } = useAuth(); // Usa el hook useAuth para obtener el usuario
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [showUserOptions, setShowUserOptions] = useState(false); // Estado para el menú desplegable
+  const navRef = useRef(null);
+  const userOptionsRef = useRef(null); // Referencia para el menú desplegable
+  const navigate = useNavigate();
+  const { user } = useAuth();
 
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
   const toggleForm = () => setIsLogin(!isLogin);
-  
+
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      console.log('Sesión cerrada');
-      window.location.href = '/'; // Redirecciona a la página de inicio
+      navigate('/');
     } catch (error) {
       console.error('Error al cerrar sesión: ', error);
     }
@@ -154,14 +459,15 @@ const NavBar = () => {
   // Función para manejar el clic en "Olvidé mi contraseña"
   const handleForgotPasswordClick = (email) => {
     console.log('handleForgotPasswordClick en NavBar con email:', email);
-    // Aquí podrías abrir un modal o redirigir al usuario a una página de recuperación de contraseña
   };
 
   // Cierra el menú al hacer clic fuera de él
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (navRef.current && !navRef.current.contains(event.target)) {
+      if (navRef.current && !navRef.current.contains(event.target) &&
+          userOptionsRef.current && !userOptionsRef.current.contains(event.target)) {
         setIsNavOpen(false);
+        setShowUserOptions(false); // Cierra el menú desplegable si se hace clic fuera
       }
     };
 
@@ -174,57 +480,60 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="contenedor">
-        <nav className="navbar navbar-expand-lg bg-body-tertiary" ref={navRef}>
-          <div className="container-fluid">
-            <Link to='/' className="navbar-brand"> il Napoli </Link>
-            <button className="navbar-toggler" type="button" onClick={toggleNav}>
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`} id="navbarNav">
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <NavLink to='/' className="nav-link">INICIO</NavLink>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light" ref={navRef}>
+        <div className="container-fluid">
+          <Link to="/" className="navbar-brand">il Napoli</Link>
+          <button className="navbar-toggler" type="button" onClick={toggleNav}>
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`} id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <NavLink to="/" className="nav-link">INICIO</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/carta" className="nav-link">CARTA</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/especialidades" className="nav-link">ESPECIALIDADES</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/menu" className="nav-link">MENÚ</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/reserva" className="nav-link">RESERVA</NavLink>
+              </li>
+              {user ? (
+                <li className="nav-item" ref={userOptionsRef}>
+                  <button 
+                    className="nav-link btn btn-list" 
+                    onClick={() => setShowUserOptions(!showUserOptions)}
+                  >
+                    <ListIcon style={{ fontSize: '40px', marginRight: '10px' }} />
+                  </button>
+                  {showUserOptions && (
+                    <div className="user-options-dropdown">
+                      <NavLink to="/perfil" className="nav-link">Perfil</NavLink>
+                      <button className="nav-link btn btn-danger" onClick={handleLogout}>Cerrar sesión</button>
+                    </div>
+                  )}
                 </li>
+              ) : (
                 <li className="nav-item">
-                  <NavLink to='/carta' className="nav-link">CARTA</NavLink>
+                  <button className="nav-link btn btn-login" onClick={openModal}>
+                    <PersonIcon style={{ fontSize: '40px', marginRight: '10px' }} />
+                    Iniciar sesión
+                  </button>
                 </li>
-                <li className="nav-item">
-                  <NavLink to='/especialidades' className="nav-link">ESPECIALIDADES</NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to='/menu' className="nav-link">MENÚ</NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to='/reserva' className="nav-link">RESERVA</NavLink>
-                </li>
-                {user && (
-                  <li className="nav-item">
-                    <NavLink to='/perfil' className="nav-link">Perfil</NavLink>
-                  </li>
-                )}
-                {user ? (
-                  <li className="nav-item">
-                    <button className="nav-link btn btn-danger" onClick={handleLogout}>Cerrar sesión</button>
-                  </li>
-                ) : (
-                  <li className="nav-item">
-                    <button className="nav-link btn btn-primary" onClick={openModal}>Iniciar sesión</button>
-                  </li>
-                )}
-              </ul>
-            </div>
+              )}
+            </ul>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
 
       <Modal isOpen={modalIsOpen} onClose={closeModal}>
-        <h2>{isLogin ? 'Iniciar sesión' : 'Registrarse'}</h2>
         {isLogin ? (
-          <Login 
-            onForgotPassword={handleForgotPasswordClick} 
-            onSuccess={closeModal} 
-          />
+          <Login onForgotPassword={handleForgotPasswordClick} onLoginSuccess={closeModal} />
         ) : (
           <Register />
         )}
@@ -237,6 +546,5 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
 
 */

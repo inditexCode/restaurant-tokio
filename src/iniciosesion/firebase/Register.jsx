@@ -5,6 +5,7 @@ import { auth, db } from './FirebaseSesion';
 import { doc, setDoc } from 'firebase/firestore';
 
 const Register = () => {
+  // Estado para almacenar los datos del formulario
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -14,40 +15,49 @@ const Register = () => {
     fechaNacimiento: '',
     telefono: ''
   });
+  // Estado para almacenar errores
   const [error, setError] = useState('');
+  // Estado para manejar el estado de carga 
   const [loading, setLoading] = useState(false);
 
+  // Función para validar el formato del email
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     return re.test(email);
   };
 
+  // Función para validar la contraseña
   const validatePassword = (password) => {
     const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return re.test(password);
   };
 
+  // Maneja los cambios en los campos del formulario
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // Función para manejar el registro de usuario
   const handleRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
 
+    // Validar email
     if (!validateEmail(formData.email)) {
       setError('Email no válido');
       setLoading(false);
       return;
     }
 
+    // Validar contraseña
     if (!validatePassword(formData.password)) {
       setError('La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un carácter especial.');
       setLoading(false);
       return;
     }
 
+    // Validar confirmación de contraseña
     if (formData.password !== formData.confirmPassword) {
       setError('Las contraseñas no coinciden');
       setLoading(false);
@@ -55,10 +65,11 @@ const Register = () => {
     }
 
     try {
+      // Crear usuario con email y contraseña en Firebase Authentication
       const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
       const user = userCredential.user;
-      
-      // Guardar información adicional en Firestore
+
+      // Guardar información adicional del usuario en Firestore
       await setDoc(doc(db, 'users', user.uid), {
         nombre: formData.nombre,
         apellido: formData.apellido,
@@ -67,7 +78,7 @@ const Register = () => {
         email: formData.email
       });
 
-      // Limpiar el formulario
+      // Limpiar el formulario después del registro exitoso
       setFormData({
         email: '',
         password: '',
@@ -78,10 +89,13 @@ const Register = () => {
         telefono: ''
       });
 
+      // Limpiar el error
       setError('');
     } catch (error) {
+      // Manejar errores durante el registro
       setError(error.message);
     } finally {
+      // Finalizar el estado de carga
       setLoading(false);
     }
   };

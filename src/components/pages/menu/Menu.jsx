@@ -6,7 +6,7 @@ import fondo from './img-menu/fondo-menu.jpg';
 import Redes from '../inicio/Redes'
 import BotonReserva from '../reserva/BotonReserva';
 
-
+// No hay mucho por explicar en este componente
 const Menu = () => {
   return (
     <div className='contenedor-menu'>
