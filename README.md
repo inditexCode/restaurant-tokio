@@ -1,8 +1,31 @@
-# React + Vite
+# Restaurant Proyecto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+Este proyecto es una aplicación web para un restaurante, que permite a los usuarios explorar el menú, hacer reservas, y más. La aplicación está construida utilizando React y Vite para una experiencia de usuario rápida y moderna.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tabla de Contenidos
+
+- [Descripción](#descripción)
+- [Características](#características)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Contribuir](#contribuir)
+- [Licencia](#licencia)
+
+## Características
+
+- **Interfaz de Usuario Atractiva:** Diseñada con Bootstrap y Vite para un rendimiento optimizado.
+- **Menú Dinámico:** Muestra el menú del restaurante con opciones para cada plato.
+- **Reservas:** Funcionalidad para hacer reservas en línea.
+- **Responsive:** Compatible con dispositivos móviles y de escritorio.
+- **Metadatos de Compartición:** Configuración de Open Graph y Twitter Cards para una correcta visualización en redes sociales.
+
+## Instalación
+
+Sigue estos pasos para configurar el proyecto en tu máquina local:
+
+1. **Clona el Repositorio:**
+
+   ```bash
+   git clone https://github.com/inditexCode/restaurant-tokio.git
